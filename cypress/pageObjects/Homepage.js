@@ -6,7 +6,7 @@ export class Homepage
     }
     hoverOnSunglassesMenu()
     {
-        cy.get(':nth-child(14) > .dropdown-toggle').should('have.text','SUNGLASSES').trigger('mouseover')
+        cy.get('.dropdown a[href="/sunglasses"]').should('have.text','SUNGLASSES').trigger('mouseover')
     }
     validateMensSunglassesMenuOptions()
     {
@@ -31,7 +31,7 @@ export class Homepage
     }
     hoverOnEyeglassesMenu()
     {
-        cy.get(':nth-child(15) > .dropdown-toggle').should('have.text','EYEGLASSES').trigger('mouseover')
+        cy.get('.dropdown a[href="/eyeglasses"]').should('have.text','EYEGLASSES').trigger('mouseover')
     }
     verifyFrameShapesOnEyeglasses()
     {
@@ -56,7 +56,7 @@ export class Homepage
 
     hoverOnContactLenseMenu()
     {
-        cy.get(':nth-child(16) > .dropdown-toggle').should('have.text','CONTACT LENSES').trigger('mouseover') //CONTACT LENSES
+        cy.get('.dropdown a[href="/contact-lenses"]').should('have.text','CONTACT LENSES').trigger('mouseover') //CONTACT LENSES
         cy.contains('h3.title', 'Featured Brands').should('have.text','Featured Brands') 
 
     }
@@ -67,12 +67,12 @@ export class Homepage
     }
     gotoReaderPage()
     {
-        cy.get(':nth-child(17) > .dropdown-toggle').should('have.attr','href','/readers').click() //Go to READER Menu link
+        cy.get('.dropdown a[href="/readers"]').should('have.attr','href','/readers').click() //Go to READER Menu link
         cy.get('h2.section-title').should('have.text','Readers') //Validate Readers heading 
     }
     hoverOnEyeCareMenu()
     {
-        cy.get(':nth-child(18) > .dropdown-toggle').should('have.text','Eye Care').trigger('mouseover')
+        cy.get('.dropdown a[href="https://www.ezcontacts.com/eye-care"]').should('have.text','Eye Care').trigger('mouseover')
     }
     validateEyecareMenu()
     {
@@ -81,17 +81,58 @@ export class Homepage
     }
     gotoClearancePage()
     {
-        cy.get('.active > .redirect-to-url-link').should('have.text','Clearance')
+        cy.get('.dropdown a[href="/eyewear/clearance:yes"]').should('have.text','Clearance')
         .should('have.attr','href','/eyewear/clearance:yes').click() //validate and GO to Clearance page
         cy.get('a[unbxdparam_facetname="v_clearance_uFilter"]').should('have.text','Clearance×') //Validate Clearance Filter applied on the page
     }
-    validateSalesMenu()
+    validatePromotionBanner()
     {
-        cy.get(':nth-child(20) > .loadspecialMsgPopup').should('have.text','SALES').click() //SALES menu
-        cy.get('#special-top-message-modal > .modal-dialog > .modal-content > .modal-body > .p-bigger-margin > .clearfix > [style="padding-bottom: 6px;"] > .btn')
-            .should('have.text','SHOP EYEGLASSES DEALS').should('have.attr','href','/eyeglasses/cyber-monday-sale/') //SHOP EYEGLASSES DEALS button
-        cy.get('#special-top-message-modal > .modal-dialog > .modal-content > .modal-body > .p-bigger-margin > .clearfix > :nth-child(2) > .btn')
-            .should('have.text','SHOP SUNGLASSES DEALS ').should('have.attr','href','/sunglasses/cyber-monday-sale/') //SHOP SUNGLASSES DEALS button
+        cy.get('.col-sm-12 > strong').should('have.text','Order Today and Get it Tomorrow! Click for details...').click() //
+        cy.wait(1000) 
+        cy.get('#special-top-message-modal > .modal-dialog > .modal-content > .modal-header > .close > [aria-hidden="true"]').click() //close popup
+    }
+    validateFreeShippingInfo()
+    {
+        cy.get('.header-top-promo > .container > .row > .col-sm-8 > :nth-child(2)').should('contain.text','FREE SHIPPING').click()//FREE SHIPPING
+        cy.wait(1000)
+        cy.get('#free-shipping-modal > .modal-dialog > .modal-content > .modal-header > #myModalLabel')
+        .should('contain.text','Free Shipping Offer Details') //Validate popup heading
+        cy.get('#free-shipping-modal > .modal-dialog > .modal-content > .modal-header > .close > [aria-hidden="true"]').click()
+    }
+    validateLowestPriceGuaranteeInfo()
+    {
+        cy.get('[data-target="#lowest-price-guarantee-modal"]').should('contain.text','Lowest Price').click() //
+        cy.get('#lowest-price-guarantee-modal > .modal-dialog > .modal-content > .modal-header > #myModalLabel')
+            .should('contain.text','Price Match') //Validate heading
+        cy.get('#lowest-price-guarantee-modal > .modal-dialog > .modal-content > .modal-header > .close > [aria-hidden="true"]').click() //Close the popup
+    }
+    validateWelcomeMessage()
+    {
+        cy.get('.col-sm-4 > .pull-right').should('contain.text','Welcome to EzContacts.com!') 
+    }
+    validateTollFreeNumberInfo()
+    {
+        cy.get('.cls-header-top-fix > .container > .row > .col-sm-4').should('contain.text','Toll Free') 
+    }
+    validateLoginLink()
+    {
+        cy.get('.top-login > [href="/account/sign-in"]').should('have.attr','href','/account/sign-in')
+    }
+    validateRorderLink()
+    {
+        cy.get('.top-login > [href="/account/order-history"]').should('have.attr','href','/account/order-history')
+    }
+    validateCreateAccountLink()
+    {
+        cy.get('[href="/account/create-account"]').should('have.attr','href','/account/create-account')
+    }
+    validateCartIcon()
+    {
+        cy.get('.cart > a').should('have.attr','href','/checkout/cart') 
+    }
+    validateCompanyLogo()
+    {
+        cy.get('.cls-header-logo-img-fix').should('exist')
     }
     verifyTheSearchSuggestionDropdown(keyword)
     {   
@@ -104,11 +145,12 @@ export class Homepage
     }
     verifyTheHeroSection()
     {
-        cy.get('.item > a > .ls-is-cached').should('exist') // main slider should exist
+        cy.get('[amplitude-id="Banner1"]').should('exist') // main slider should exist
         cy.get('.right').click() //move right
         cy.wait(2000)
         cy.get('.left').click() //move left
         cy.wait(2000)
+        cy.get('.right').click() //move right
         cy.get('.item.active a').click() //Click on slider image
     }
     verifyDealSectionProducts()
@@ -153,5 +195,81 @@ export class Homepage
         cy.get('.col a[href="/eyeglasses/brand:coach"]').should('have.attr','href','/eyeglasses/brand:coach') //Validate coach
         cy.get('.col a[href="/eyeglasses/brand:ray-ban"]').should('have.attr','href','/eyeglasses/brand:ray-ban') //Validate ray-ban
         cy.get('.col a[href="/sunglasses/brand:marc-by-marc-jacobs"]').should('have.attr','href','/sunglasses/brand:marc-by-marc-jacobs') //Validate marc-by-marc-jacobs
+    }
+    activeEmailSubscription(email)
+    {
+        cy.get('#deal-signup-email').should('have.attr','placeholder','Email').type(email) //add email for subscription
+        cy.get('#EmailSubscriptionHomeForm > .btn').should('exist').click() //click on arrow
+        cy.get('#email-signup-message').should('have.text','You have been successfully subscribed.') //Validate success message
+    }
+    validateAccountSectionLinksInFooter()
+    {
+        cy.get(':nth-child(1) > .mobile-accordion').should('have.text','ACCOUNT') //ACCOUNT Heading
+        cy.get(':nth-child(1) > .list-unstyled > :nth-child(1) > a').should('have.attr','href','/account/sign-in') //Signin
+        cy.get(':nth-child(1) > .list-unstyled > :nth-child(2) > a').should('have.attr','href','/account/sign-in') //Create your account
+        cy.get(':nth-child(1) > .list-unstyled > :nth-child(3) > a').should('have.attr','href','/order-finder')  //Track my order
+        cy.get(':nth-child(1) > .list-unstyled > :nth-child(4) > a').should('have.attr','href','/account/order-history')  //Order History
+        cy.get(':nth-child(1) > .list-unstyled > :nth-child(5) > a').should('have.attr','href','/account/order-history')  //Reorder
+    }
+    validateCategoriesSectionLinksInFooter()
+    {
+        cy.get(':nth-child(2) > .mobile-accordion').should('have.text','CATEGORIES') //Validate CATEGORIES heading
+        cy.get(':nth-child(2) > .list-unstyled > :nth-child(1) > a').should('have.attr','href','/eyeglasses')  //Eyeglasses
+        cy.get(':nth-child(2) > .list-unstyled > :nth-child(2) > a').should('have.attr','href','/sunglasses')  //Sunglasses
+        cy.get(':nth-child(2) > .list-unstyled > :nth-child(3) > a').should('have.attr','href','/sunglasses/cat:is-rxable')  //Prescription Glasses
+        cy.get(':nth-child(2) > .list-unstyled > :nth-child(4) > a').should('have.attr','href','/eyewear/brands')  //EyeWear Brands
+        cy.get(':nth-child(2) > .list-unstyled > :nth-child(5) > a').should('have.attr','href','/contact-lenses/view-all')  //Contact Brands
+        cy.get(':nth-child(2) > .list-unstyled > :nth-child(6) > a').should('have.attr','href','/sunglasses/clearance:yes')  //Clearance Sunglasses
+        cy.get('.list-unstyled > :nth-child(7) > a').should('have.attr','href','/eyeglasses/clearance:yes')  //Clearance eyeglasses
+    }
+    validateCustomerCareSectionLinksInFooter()
+    {
+        cy.get(':nth-child(3) > .mobile-accordion').should('have.text','CUSTOMER CARE') //CUSTOMER CARE heading
+        cy.get(':nth-child(3) > .list-unstyled > :nth-child(1) > a').should('have.attr','href','/about-us')  //About EZ Contact
+        cy.get(':nth-child(3) > .list-unstyled > :nth-child(2) > a').should('have.attr','href','/help/faq')  //EZ Contact FAQs
+        cy.get(':nth-child(3) > .list-unstyled > :nth-child(3) > a').should('have.attr','href','/help/faq/shipping-and-handling')  //Shipping & Handling
+        cy.get(':nth-child(3) > .list-unstyled > :nth-child(4) > a').should('have.attr','href','/help/faq/returns-and-exchanges')  //Returns & Exchanges
+        cy.get(':nth-child(3) > .list-unstyled > :nth-child(5) > a').should('have.attr','href','/resources/price-match-guarantee')  //Price Match Guarantee
+    }
+    validateHowsToSectionLinksInFooter()
+    {
+        cy.get(':nth-child(4) > .mobile-accordion').should('have.text','HOW TOS') //HOW TOS heading
+        cy.get(':nth-child(4) > .list-unstyled > :nth-child(1) > a').should('have.attr','href','https://www.ezcontacts.com/blog/2018/12/18/how-to-choose-your-eyeglasses-selecting-frames/')  //Selecting Frames
+        cy.get(':nth-child(4) > .list-unstyled > :nth-child(2) > a').should('have.attr','href','https://www.ezcontacts.com/blog/2019/01/30/prescription-glasses-lenses-guide/')  //Selecting Lenses
+        cy.get(':nth-child(4) > .list-unstyled > :nth-child(3) > a').should('have.attr','href','https://www.ezcontacts.com/blog/2019/05/08/selecting-sunglasses-guide/')  //Selecting Sunglasses
+        cy.get(':nth-child(4) > .list-unstyled > :nth-child(4) > a').should('have.attr','href','https://www.ezcontacts.com/blog/2019/07/17/eyewear-care-guide/')  //Eyewear Care
+        cy.get(':nth-child(4) > .list-unstyled > :nth-child(5) > a').should('have.attr','href','/resources/reading-your-prescription')  //Reading Prescription
+        cy.get(':nth-child(4) > .list-unstyled > :nth-child(6) > a').should('have.attr','href','/resources/measure-pupil-distance')  //Measure PD
+    }
+    validateResourcesLinksInFooterSection()
+    {
+        cy.get(':nth-child(5) > .mobile-accordion').should('have.text','RESOURCES') //Resource heading
+        cy.get(':nth-child(5) > .list-unstyled > :nth-child(1) > a').should('have.attr', 'href','https://www.ezcontacts.com/blog/customer-gallery/')  //Customer Gallery
+        cy.get(':nth-child(5) > .list-unstyled > :nth-child(2) > a').should('have.attr','href','https://www.ezcontacts.com/blog/2018/12/06/hsa-fsa-funds-buy-eyewear')  //FSA ELigable
+        cy.get(':nth-child(5) > .list-unstyled > :nth-child(3) > a').should('have.attr','href','https://www.ezcontacts.com/blog/')  //Blog
+        cy.get(':nth-child(5) > .list-unstyled > :nth-child(4) > a').should('have.attr','href','/help/faq#vision-insurance')  //Vision Insurance
+    }
+    validateContactUsSectonInFooter()
+    {
+        cy.get('.contact-us-title').should('have.text','CONTACT US') //CONTACT US Heading
+        cy.get('.contact-us-list > :nth-child(1) > a').should('have.attr','href','/help/contact-us')  //Call
+        cy.get('.contact-us-list > :nth-child(2) > a').should('have.attr','href','/help/contact-us') //EMail
+        cy.get('.contact-us-list > :nth-child(3) > a').should('have.attr','href','/help/faq')  //FAQs
+        cy.get('.contact-us-list > :nth-child(4) > a').should('have.attr','href','https://www.ezcontacts.com/blog/')  //Blog
+    }
+    validatePrivacyPolicy_TermsOfServiceLinks()
+    {
+        cy.get('.cstm-privacy').should('have.attr','href','/company/privacy-policy') //Privacy Policy 
+        cy.get('.cstm-terms').should('have.attr','href','/company/terms-and-conditions') //Terms Of service
+    }
+    validateSocialIconsInFooter()
+    {
+        cy.get('[href="https://www.facebook.com/ezcontacts/"] > .fa').should('exist') //Facebook
+        cy.get('[href="https://www.instagram.com/officialezcontacts/"] > .fa').should('exist')  //Instagram
+        cy.get('[href="https://www.pinterest.com/ezcontacts/"] > .fa').should('exist')  //PInterest
+    }
+    validateCopyRight()
+    {
+        cy.get('.cstm-copy-right').should('have.text','\n Copyright 2023 EZContacts.com. All Rights Reserved. ') //validate copyright
     }
 }
