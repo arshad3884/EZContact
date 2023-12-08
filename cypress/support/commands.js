@@ -23,3 +23,13 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import 'cypress-iframe';
+
+Cypress.Commands.add('enterCrossDomainIframe', { prevSubject: 'element' }, (iframe) => {
+  cy.wrap(iframe)
+    .iframe()
+    .find('#your-iframe-element-id')
+    .iframe()
+    .then((iframe) => cy.wrap(iframe));
+});
+

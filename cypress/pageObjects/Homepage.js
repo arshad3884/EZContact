@@ -2,7 +2,7 @@ export class Homepage
 {
     closeDiscountPOpup()
     {
-        cy.get('#ltkpopup-close-button > .ltkpopup-close').click()
+        cy.get('#ltkpopup-close-button > .ltkpopup-close').click() //Close popup cross icon
     }
     hoverOnSunglassesMenu()
     {
