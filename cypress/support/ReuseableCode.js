@@ -14,7 +14,7 @@ export class ReuseableCode{
     
     getRandomFirstName()
     {
-    let firstNames = ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack', 'Katherine', 'Liam', 'Mia', 'Noah', 'Olivia', 'Peyton', 'Quinn', 'Ryan', 'Sophia'];
+    let firstNames = ['Alice', 'Bob', 'Charlie', 'David', 'Emma', 'Frank', 'Grace', 'Henry', 'Ivy', 'Jack', 'Katherine', 'Liam', 'Mia', 'Noah', 'Olivia', 'Peyton', 'Quinn', 'Ryan', 'Sophia' ];
     let randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)]
     // Remove double quotes from the string
     const firstNameWithoutQuotes = randomFirstName.replace(/"/g, '');
@@ -38,4 +38,5 @@ export class ReuseableCode{
       
         return formattedPhoneNumber;
       }
+      
     }

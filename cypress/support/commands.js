@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('selectRandomProduct', () => {
+    cy.get('.mask-wrap a[href*="https://www.ezcontacts.com/product/"]:nth-child(1)').should('be.visible').then(($products) => {
+      const randomIndex = Math.floor(Math.random() * $products.length);
+      cy.wrap($products[randomIndex]).click({force: true})
+    });
+  });

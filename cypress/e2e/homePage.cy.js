@@ -135,7 +135,7 @@ describe('HomePage TS_002', function(){
         homepage.validateCustomerCareSectionLinksInFooter() //Validate Customer Care section
     })
 
-    it ('TC_EZ_025 - Validate the "HOW TOS" links in footer section', function(){
+    it('TC_EZ_025 - Validate the "HOW TOS" links in footer section', function(){
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.validateHowsToSectionLinksInFooter() //How To's section 
