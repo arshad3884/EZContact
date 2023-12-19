@@ -1,6 +1,11 @@
 
 export class ReuseableCode{
 
+    getRandomNumber(min, max) {
+      // Use Math.random() to generate a random decimal between 0 and 1
+      // Multiply by the range (max - min + 1) and add min to shift the range
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
     generateRandomString(length) {
       const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
       let randomString = '';

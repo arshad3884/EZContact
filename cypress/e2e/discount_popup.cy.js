@@ -1,12 +1,12 @@
 
 ///<reference types='Cypress'/>
-import { DiscountPopup } from "../pageObjects/discount_popup"
+import { DiscountPopup } from "../pageObjects/Discount_popup"
 import { ReuseableCode } from "../support/ReuseableCode"
 
 const discount_popup = new DiscountPopup();
 const reuseableCode = new ReuseableCode();
 
-describe('discount_popup', () => {
+describe('discount_popup TS_001', () => {
   
   let data
   before(function(){
@@ -17,7 +17,7 @@ describe('discount_popup', () => {
     })
 })
 
-  it('TC_EZ_001', () => {
+  it('TC_EZ_001 - Verify that (Please Enter a Valid email address) appear on invalid email', () => {
 
     cy.visit('/')
     cy.wait(2000)
@@ -26,7 +26,7 @@ describe('discount_popup', () => {
     discount_popup.getInvalidEmailError()
   })
   
-  it('TC_EZ_002', () => {
+  it('TC_EZ_002 - Verify that "YOURE IN!" along with the Discount code is shown on valid email', () => {
     cy.visit('/')
     cy.wait(2000)
     const randomString = reuseableCode.generateRandomString(8);
@@ -35,7 +35,7 @@ describe('discount_popup', () => {
     discount_popup.getCouponandSuccessMsg();
   })
   
-  it('TC_EZ_003', () => {
+  it('TC_EZ_003 - Verify that "Thanks Your are already on the list" is shown on used valid email', () => {
     cy.visit('/')
     cy.wait(2000)
     discount_popup.enterEmail(data.correctEmail);
@@ -43,7 +43,7 @@ describe('discount_popup', () => {
     discount_popup.getConfirmationLabel()
   })
 
-  it('TC_EZ_004', () => {
+  it('TC_EZ_004 - Verify that after getting a discount code user can SIGNUP for mobile alerts by entering a valid phone number', () => {
 
     cy.visit('/')
     cy.wait(2000)
@@ -56,14 +56,14 @@ describe('discount_popup', () => {
     discount_popup.confirmSubcriptionMsg();
   })
 
-  it('TC_EZ_005', () => {
+  it('TC_EZ_005 - Verify that on the discount popup "No thanks" link is shown', () => {
 
     cy.visit('/')
     cy.wait(2000)
     discount_popup.getNoThankslink().should('contain.text','No, thanks')
     discount_popup.getNoThankslink().click().should('not.exist')
   })
-  it('TC_EZ_006', () => {
+  it('TC_EZ_006 - Verify that on the discount code "Cross" icon is shown', () => {
 
     cy.visit('/')
     cy.wait(2000)
@@ -72,7 +72,7 @@ describe('discount_popup', () => {
   
   })
 
-  it('TC_EZ_007', () => {
+  it('TC_EZ_007 - Verify that on the discount code "Privacy Policy" and "Terms of Use" links are available', () => {
 
     cy.visit('/')
     cy.wait(2000)

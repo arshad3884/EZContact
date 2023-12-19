@@ -84,7 +84,7 @@ export class EyeCareProductDetail
             const price1 = elem1[1].trim() //get the price
             cy.log(price1)  
             expect(Number(price1)).be.equal(Number(price)) //Validate that total is updated after applying promo
-            cy.get('.jsRemoveCartProduct').click()
+            cy.get('.jsRemoveCartProduct').click()  
         })    
     })
     }
