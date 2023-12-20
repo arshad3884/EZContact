@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules\\.bin\\cypress run" ,
+    "test": "node_modules\\.bin\\cypress run",
     "report-chrome": "npx cypress run --browser chrome",
     "report-chrome-headed": "npx cypress run --headed --browser chrome",
     "test-dashboard": "npx cypress run --record --key 8450fc4b-68ae-4fe8-b5ba-fd35f0a3c38c --browser chrome --headed"
@@ -13,7 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.6.1"
+    "cypress": "^13.6.1",
+    "cypress-mochawesome-reporter": "^3.7.0"
   },
   "devDependencies": {
     "cypress-iframe": "^1.0.1"
