@@ -15,28 +15,28 @@ describe('ContactLensesProductDetail TS_017',function(){
         });
     })
 
-    it ('TC_EZ_328 - Verify the content on the Contact-lenses Product detail page shown correctly',function(){
+    it ('TC_CLPD_001 - Verify the content on the Contact-lenses Product detail page shown correctly',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
       contactLensesProductDetail.validateAllContentOnProductDetailPage()
     })
 
-    it ('TC_EZ_329 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
+    it ('TC_CLPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
       contactLensesProductDetail.addLoginDetails()
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
       contactLensesProductDetail.goToAddReview()
     })
 
-    it ('TC_EZ_330 - Validate the "QUESTIONS & ANSWERS" section and functionality on product detail page',function(){
+    it ('TC_CLPD_003 - Validate the "QUESTIONS & ANSWERS" section and functionality on product detail page',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
       contactLensesProductDetail.goToQuestionAnswersSection()
     })
 
-    it ('TC_EZ_332 - Validate the "Add to Cart" functionality on the contact-lenses product page after setting eyes prescription separately',function(){
+    it ('TC_CLPD_005 - Validate the "Add to Cart" functionality on the contact-lenses product page after setting eyes prescription separately',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
@@ -44,7 +44,7 @@ describe('ContactLensesProductDetail TS_017',function(){
       contactLensesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_EZ_333 - Validate the "Add to Cart" functionality on the contact-lenses product page after setting only Right Eye (OD) prescription',function(){
+    it ('TC_CLPD_006 - Validate the "Add to Cart" functionality on the contact-lenses product page after setting only Right Eye (OD) prescription',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
@@ -52,7 +52,7 @@ describe('ContactLensesProductDetail TS_017',function(){
       contactLensesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_EZ_334 - Validate the "Add to Cart" functionality on the contact-lenses product page after setting only Left Eye (OD) prescription',function(){
+    it ('TC_CLPD_007 - Validate the "Add to Cart" functionality on the contact-lenses product page after setting only Left Eye (OD) prescription',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
@@ -60,7 +60,7 @@ describe('ContactLensesProductDetail TS_017',function(){
       contactLensesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_EZ_335 - Validate the "Add to Cart" functionality on the contact-lenses product page after enabling Same prescription for both eyes',function(){
+    it ('TC_CLPD_008 - Validate the "Add to Cart" functionality on the contact-lenses product page after enabling Same prescription for both eyes',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       cy.selectRandomProduct()
@@ -71,7 +71,7 @@ describe('ContactLensesProductDetail TS_017',function(){
       contactLensesProductDetail.addAProductToCartAndValidate()      //incomplete
     })
 
-    it ('TC_EZ_336 - Validate on the contact-lenses product if user clicks on "Add to cart" without selecting any option app shows an error',function(){
+    it ('TC_CLPD_009 - Validate on the contact-lenses product if user clicks on "Add to cart" without selecting any option app shows an error',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
       homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage() 
