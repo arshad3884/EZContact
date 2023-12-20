@@ -7,7 +7,7 @@ import { ReaderProductDetail } from "../pageObjects/ReaderProductDetail"
 const homepage = new Homepage
 const readerProductDetail = new ReaderProductDetail
 
-describe('ReaderProductDetail TS_004',function(){
+describe('ReaderProductDetail TS_018',function(){
     before(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
           // Returning false prevents Cypress from failing the test

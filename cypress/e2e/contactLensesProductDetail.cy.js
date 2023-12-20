@@ -7,7 +7,7 @@ import { ContactLensesProductDetail } from "../pageObjects/ContactLensesProductD
 const homepage = new Homepage
 const contactLensesProductDetail = new ContactLensesProductDetail
 
-describe('ContactLensesProductDetail TS_004',function(){
+describe('ContactLensesProductDetail TS_017',function(){
     before(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
           // Returning false prevents Cypress from failing the test

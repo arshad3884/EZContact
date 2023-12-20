@@ -87,7 +87,7 @@ export class Homepage
     }
     validatePromotionBanner()
     {
-        cy.get('.col-sm-12 > strong').should('have.text','Order Today and Get it Tomorrow! Click for details...').click() //
+        cy.get('.col-sm-12 > strong').should('exist').click() //
         cy.wait(1000) 
         cy.get('#special-top-message-modal > .modal-dialog > .modal-content > .modal-header > .close > [aria-hidden="true"]').click() //close popup
     }

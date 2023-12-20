@@ -24,7 +24,7 @@ describe('CheckoutPage TS_004',function(){
     it ('TC_EZ_047 - Validate a shopping cart page after adding some product(s)',function(){
         cy.visit('/')
         homepage.closeDiscountPOpup()
-        checkout.clickonSunglasses()//add a Sunglasses product from catalog
+        checkout.goToSunglassesCatalog()//add a Sunglasses product from catalog
         checkout.addAProductToCartWithoutProtection()// add a product to cart without protection
         checkout.validateAllContentOnCartPage() //validate the shipping cart
     })
@@ -68,7 +68,7 @@ describe('CheckoutPage TS_004',function(){
         homepage.closeDiscountPOpup()
         checkout.goToSunglassesCatalog() //add a Sunglasses product from catalog
         checkout.addAProductToCartWithoutProtection() // add a product to cart without protection
-        checkout.validateRedeemPromoCodeFunctionalty() // validate Invalid Redeem Promo Code Functionalty
+        checkout.validateInValidRedeemPromoCodeFunctionalty() // validate Invalid Redeem Promo Code Functionalty
     })
 
     it ('TC_EZ_053 - Validate the valid code in Redeem Promo Code ',function(){

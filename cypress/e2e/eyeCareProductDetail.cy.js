@@ -6,7 +6,7 @@ import { EyeCareProductDetail } from "../pageObjects/EyeCareProductDetail"
 const homepage = new Homepage
 const eyeCareProductDetail = new EyeCareProductDetail
 
-describe('EyeCareProductDetail TS_004',function(){
+describe('EyeCareProductDetail TS_019',function(){
     before(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
           // Returning false prevents Cypress from failing the test
