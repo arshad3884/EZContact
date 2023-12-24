@@ -7,17 +7,17 @@
     "run-nonHeaded": "node_modules\\.bin\\cypress run",
     "report-chrome": "npx cypress run --browser chrome",
     "report-chrome-headed": "npx cypress run --headed --browser chrome",
-    "test-dashboard": "npx cypress run --record --key 9d9bf30b-b8d8-41a1-9be1-2665643b724b --browser chrome --headed",
+    "test-dashboard": "npx cypress run --record --key de0f622a-9248-40da-8313-c3f484995d37 --browser chrome --headed",
     "run-accountPage": "npx cypress run --headed --browser chrome --spec cypress\\e2e\\accountPage.cy.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.6.1",
     "cypress-mochawesome-reporter": "^3.7.0"
   },
   "devDependencies": {
+    "cypress": "^13.6.1",
     "cypress-if": "^1.10.5",
     "cypress-iframe": "^1.0.1"
   }
