@@ -7,7 +7,7 @@
     "run-nonHeaded": "node_modules\\.bin\\cypress run",
     "report-chrome": "npx cypress run --browser chrome",
     "report-chrome-headed": "npx cypress run --headed --browser chrome",
-    "report-dashboard": "npx cypress run --record --key 9d9bf30b-b8d8-41a1-9be1-2665643b724b --browser chrome --headed",
+    "test-dashboard": "npx cypress run --record --key 9d9bf30b-b8d8-41a1-9be1-2665643b724b --browser chrome --headed",
     "run-accountPage": "npx cypress run --headed --browser chrome --spec cypress\\e2e\\accountPage.cy.js"
   },
   "keywords": [],
