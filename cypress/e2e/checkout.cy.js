@@ -116,7 +116,7 @@ describe('CheckoutPage TS_004',function(){
         checkout.validateAllContentOnShippingAndPaymentPage() //validate All Content On Shipping And Payment Page
     })
 
-    it.only ('TC_CK_013 - Validate the "Shipping Options" section in the "Payment" page ',function(){
+    it ('TC_CK_013 - Validate the "Shipping Options" section in the "Payment" page ',function(){
         cy.visit('/')
         homepage.closeDiscountPOpup()
         checkout.goToSunglassesCatalog() //add a Sunglasses product from catalog
