@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  projectId: '8sbs53',
+  projectId: 'piaci7',
   watchForFileChanges : false,
   chromeWebSecurity : false,
   retries:{runMode:1},
