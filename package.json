@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx cypress run --record",
+    "start": "npx cypress run --record --headed --browser chrome --spec cypress\\e2e\\homePage.cy.js",
     "report-chrome": "npx cypress run --browser chrome",
     "report-chrome-headed": "npx cypress run --headed --browser chrome",
     "test-dashboard": "npx cypress run --record --key de0f622a-9248-40da-8313-c3f484995d37 --browser chrome --headed",
-    "run-accountPage": "npx cypress run --headed --browser chrome --spec cypress\\e2e\\accountPage.cy.js"
+    "run-accountPage": "npx cypress run --headed --browser chrome --spec cypress\\e2e\\homePage.cy.js"
   },
   "keywords": [],
   "author": "",
