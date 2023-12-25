@@ -1,11 +1,13 @@
-name: Cypress Tests
+name: EZContact e2e Test
 on: 
     # Manual Button Click from Github UI
     workflow_dispatch:
     # Pushing commit to the master branch
     push:
       branches: master
-   
+    schedule:
+    # runs tests every day at 1am
+    - cron: '0 1 * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -19,7 +21,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Cypress run
+      - name: e2e Test on Chrome 
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
         with:
