@@ -13,13 +13,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: cypress run --record --spec cypress/e2e/homePage.cy.js --headed --browser chrome
+      - name: cypress run --record
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
         with:
-          # browser: chrome
-          # headed: true
-          # spec: cypress/e2e/spec1.cy.js
+          browser: chrome
+          headed: true
+          spec: cypress/e2e/homePage.cy.js
           # Starts web server for E2E tests - replace with your own server invocation
           # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
           # start: npm start
