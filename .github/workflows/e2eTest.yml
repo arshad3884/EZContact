@@ -1,5 +1,13 @@
 name: Cypress Tests
-on: [push]
+on: 
+    # Manual Button Click from Github UI
+    workflow_dispatch:
+    # Pushing commit to the master branch
+    push:
+      branches: master
+    # On every night 1 am
+    schedule:
+      cron: '0 1 * * *'
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -9,7 +17,7 @@ jobs:
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
       # matrix:
-        # containers: [1, 2] # Uses 2 parallel instances
+        # containers: [1, 2] # run 3 copies of the current job in parallel
     steps:
       - name: Checkout
         uses: actions/checkout@v3
