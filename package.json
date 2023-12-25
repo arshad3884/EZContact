@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "",
+    "start": "cypress run",
     "run-chrome": "npx cypress run --browser chrome",
     "run-chrome-headed": "npx cypress run --headed --browser chrome",
     "report-To-dashboard": "npx cypress run --record --key de0f622a-9248-40da-8313-c3f484995d37 --browser chrome --headed"
