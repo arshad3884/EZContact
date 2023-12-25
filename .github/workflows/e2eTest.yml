@@ -53,6 +53,20 @@ jobs:
           # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: true
           parallel: true # Runs test in parallel using settings above
+      - name: Send Email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          secure: true
+          username: ${{ secrets.MAIL }}
+          password: ${{ secrets.PASSWORD }}
+          subject: "Cypress test report"
+          to: mysms33@gmail.com
+          from: Testim User
+          body: Please find the report of Testim tests attached.
+          attachments: cypress/reports/html/cypress-execution-report.zip
+          
         env:
           # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
           # in GitHub repo → Settings → Secrets → Actions
