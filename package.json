@@ -7,7 +7,8 @@
     "start": "npx cypress run --record",
     "run-chrome": "npx cypress run --browser chrome",
     "run-chrome-headed": "npx cypress run --headed --browser chrome",
-    "report-To-dashboard": "npx cypress run --record --key de0f622a-9248-40da-8313-c3f484995d37 --browser chrome --headed"
+    "report-To-dashboard": "npx cypress run --record --key de0f622a-9248-40da-8313-c3f484995d37 --browser chrome --headed",
+    "homePage": "cypress run --record --spec cypress/e2e/homePage.cy.js --headed --chrome"
   },
   "keywords": [],
   "author": "",
