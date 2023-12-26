@@ -189,9 +189,9 @@ export class CheckoutPage
     {
         cy.get('.p2.hidden-xs.acc-edit').should('contain.text','Shipping Options ')
         cy.get('#selectShipId').select('5-7 Business Days - Free').should('exist')
-        cy.get('#selectShipId').select('3-5 Business Days - $7.95').should('exist')
-        cy.get('#selectShipId').select('2 Business Days (Special Rate) - $19.95').should('exist')
-        cy.get('#selectShipId').select('1 Business Day - $29.95').should('exist')
+        cy.get('#selectShipId').select('3-5 Business Days - $7.95').should('exist').wait(2000)
+        cy.get('#selectShipId').select('2 Business Days (Special Rate) - $17.95').should('exist').wait(1000)
+        cy.get('#selectShipId').select('1 Business Day (Special Rate) - $19.95').should('exist')
         cy.get('.p2 > .pull-right').click()
         cy.url().should('include','/checkout/shipping')
     }

@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  projectId: '8sbs53',
+  projectId: '8f2166',
   watchForFileChanges : false,
   chromeWebSecurity : false,
   retries:{runMode:1},
@@ -12,6 +12,8 @@ module.exports = defineConfig({
     embeddedScreenshots: true,
     inlineAssets: true,
     saveAllAttempts: false,
+    reportFilename: "Report-[datetime]-report",
+    timestamp: "longDate"
   },
   e2e: {
     setupNodeEvents(on, config) {
@@ -19,6 +21,8 @@ module.exports = defineConfig({
       require('cypress-mochawesome-reporter/plugin')(on);
     },
     baseUrl : 'https://www.ezcontacts.com',
-    "defaultCommandTimeout": 20000,
+    "pageLoadTimeout": 30000,
+    "defaultCommandTimeout": 30000,
+    
   },
 });

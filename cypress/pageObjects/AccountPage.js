@@ -3,7 +3,7 @@ export class AccountPage
 validateSigninPageContent()
 {
     cy.get('.section-title').should('contain.text','Sign in') //Validate Sign in heading
-    cy.get('#UserEmail').should('exist') //email field
+    cy.get('#UserEmail').should('exist') //email field validate
     cy.get('.b').should('contain.text','Are you a new or returning customer?') //validate heading
     cy.get(':nth-child(5) > :nth-child(2) > label').should('contain.text','Returning Customer') //Returning Customer text
     cy.get(':nth-child(5) > :nth-child(4) > label').should('contain.text','New Customer') //New Customer text
