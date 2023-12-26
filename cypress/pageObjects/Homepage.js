@@ -2,7 +2,8 @@ export class Homepage
 {
     closeDiscountPOpup()
     {
-        cy.get('#ltkpopup-close-button > .ltkpopup-close').click() //Close popup cross icon
+        cy.wait(2000)
+        cy.get('#ltkpopup-close-button > .ltkpopup-close').should('exist').click() //Close popup cross icon
     }
     hoverOnSunglassesMenu()
     {
