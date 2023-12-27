@@ -198,7 +198,7 @@ validateOrder()
         cy.get('.dropdown a[href="/sunglasses"]').should('have.text','SUNGLASSES').click() //go to SUNGLASSES catalog
         cy.get('#ltkpopup-close-button > .ltkpopup-close').should('exist').click() //close popup
         const randomProduct = Math.floor(Math.random() * 24); //generate a random number 1-24
-        cy.get('.glass-mask').eq(randomProduct).click(); //click on a product randomly
+        cy.get('.glass-mask').eq(randomProduct).click() //click on a product randomly
         cy.get('.add-to-wishlist-btn').should('exist').click() //click add to wish list
         cy.wait(2000) 
         
