@@ -104,7 +104,7 @@ describe('HomePage TS_002', function(){
         homepage.validateContactLenseSection() //Validate contact lense section
     })
 
-    it ('TC_HP_013 - Verify that brand logo icons are shown and redirect the user to specific product page', function(){
+    it.only ('TC_HP_013 - Verify that brand logo icons are shown and redirect the user to specific product page', function(){
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.validateBrandLogoIcons() //Validate brand logo icons

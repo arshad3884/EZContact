@@ -113,7 +113,7 @@ describe('AccountPage TS_003 ',function(){
         accountPage.validateRecentSection()
     })
     
-    it('TC_AC_014 - Validate the "Wishlist" section on the "MY ACCOUNT" main page', function(){
+    it.only('TC_AC_014 - Validate the "Wishlist" section on the "MY ACCOUNT" main page', function(){
         cy.visit('/account/sign-in')
         accountPage.signin('johndoe@yopmail.com','123456')
         accountPage.goToWishilistSection() //validate Wishlist section
