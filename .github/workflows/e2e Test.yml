@@ -11,9 +11,6 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    # Runs tests in parallel with matrix strategy https://docs.cypress.io/guides/guides/parallelization
-    # https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs
-    # Also see warning here https://github.com/cypress-io/github-action#parallel
     strategy:
       fail-fast: false # https://github.com/cypress-io/github-action/issues/48
       # matrix:
@@ -39,7 +36,6 @@ jobs:
           # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Send email using SMTP
-      sending-email:
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
