@@ -23,6 +23,7 @@ jobs:
         with:
           browser: chrome
           headed: true
+          spec: cypress/e2e/*.cy.js
           # spec: |
           #   cypress/e2e/checkout.cy.js
           #   cypress/e2e/homePage.cy.js
@@ -34,14 +35,7 @@ jobs:
           name: cypress-execution-report
           path: cypress/reports/html
           retention-days: 7
-
-  send-mail:
-    runs-on: ubuntu-latest
-    needs: cypress-run
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
+          
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
