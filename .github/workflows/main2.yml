@@ -24,9 +24,13 @@ jobs:
         with:
           browser: chrome
           headed: true
-          spec: |
-            cypress/e2e/checkout.cy.js
-            cypress/e2e/homePage.cy.js
+          # spec: |
+            #cypress/e2e/checkout.cy.js
+            #cypress/e2e/homePage.cy.js
+          config: |
+            {
+              "integrationFolder": "cypress/e2e"
+            }
       # Records to Cypress Cloud 
       # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: true
