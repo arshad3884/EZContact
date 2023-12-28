@@ -27,7 +27,7 @@ jobs:
         with:
           browser: chrome
           headed: true
-          spec: cypress/e2e/contactLensesCatlog.cy.js
+          # spec: cypress/e2e/contactLensesCatlog.cy.js
       # Records to Cypress Cloud 
       # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
           record: true
