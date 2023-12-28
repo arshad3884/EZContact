@@ -148,10 +148,6 @@ export class EyeglassesProductDetail {
     selectLensType(lensType)
     {
         cy.get('div[class="col-sm-6"]').contains(lensType).should('contain.text',lensType).click()
-        cy.get('#AccountPrescriptionRightSph').select('+1.00') //Sphere Right eye OD
-        cy.get('#AccountPrescriptionLeftSph').select('+1.00') //Sphere Left Eye OD
-        cy.get('#AccountPrescriptionPd1').select(1) //PD Pupil Distance
-        cy.get('#step3-content > .step-btns > .pull-right').should('contain.text', 'Next Step').click() //Next
     }
     selectLensTypeBifocal(lensType1)
     {
@@ -167,6 +163,15 @@ export class EyeglassesProductDetail {
         cy.get('#step4-content > .step-btns > .pull-right').should('contain.text', 'Next Step').click() //Next
         cy.wait(2000) 
     }
-
+    selectLensTypeDetail()
+    {
+        cy.get('#AccountPrescriptionRightSph').select('+1.00') //Sphere Right eye OD
+        cy.get('#AccountPrescriptionLeftSph').select('+1.00') //Sphere Left Eye OD
+        cy.get('#AccountPrescriptionPd1').select(1) //PD Pupil Distance
+        cy.get('#step3-content > .step-btns > .pull-right').should('contain.text', 'Next Step').click() //Next
+    }
+    selectBlueLightLensDetail(lens)
+    {
+        cy.get('div[class="col-md-10 col-sm-9"]').contains(lens).should('contain.text',lens).click()
+    }
 }
-
