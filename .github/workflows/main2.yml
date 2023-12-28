@@ -16,7 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: e2e Test on Chrome 
         # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
@@ -27,17 +26,9 @@ jobs:
           # spec: |
           #   cypress/e2e/checkout.cy.js
           #   cypress/e2e/homePage.cy.js
-
-      - name: Uploading artifact
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: cypress-execution-report
-          path: cypress/reports/html
-          retention-days: 7
-          
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
+        if: always()
         with:
           # Specify connection via URL (replaces server_address, server_port, secure,
           # username and password)
@@ -82,3 +73,10 @@ jobs:
           attachments: /home/runner/work/EZContact/EZContact/cypress/reports/html/*.html
           # Optional priority: 'high', 'normal' (default) or 'low'
           # priority: low
+      - name: Uploading artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-execution-report
+          path: cypress/reports/html
+          retention-days: 7
