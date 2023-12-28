@@ -48,10 +48,6 @@ jobs:
             retention-days: 7
       # Send email using SMTP
       sending-email:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Check out repository code
-            uses: actions/checkout@v2
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
