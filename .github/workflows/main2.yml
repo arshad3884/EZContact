@@ -1,4 +1,4 @@
-name: EZContact e2e Test
+name: EZContact e2e Test2
 on: 
     # Manual Button Click from Github UI
     workflow_dispatch:
