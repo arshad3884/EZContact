@@ -16,12 +16,8 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import 'cypress-if'
-<<<<<<< HEAD
-=======
-
-import 'cypress-if'
->>>>>>> 9917614856139c939f8587fa602181e8e893d11d
 import 'cypress-mochawesome-reporter/register';
+import 'cypress-xpath'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
@@ -35,13 +31,7 @@ if (!app.document.head.querySelector('[data-hide-command-log-request]')) {
 
   app.document.head.appendChild(style);
 }
-<<<<<<< HEAD
-
-
-require('cypress-xpath')
-=======
 Cypress.on('uncaught:exception', (err, runnable) => {
   // Returning false prevents Cypress from failing the test
   return false;
 });
->>>>>>> 9917614856139c939f8587fa602181e8e893d11d

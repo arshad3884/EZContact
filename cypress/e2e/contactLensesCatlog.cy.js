@@ -2,14 +2,14 @@
 /// <reference types = "Cypress"/>
 import { Homepage } from "../pageObjects/Homepage";
 import { ContactLensesCatlog } from "../pageObjects/ContactLensesCatlog";
-import { Runnable } from "mocha";
 
 const homepage= new Homepage
 const contantlensesCatlog = new ContactLensesCatlog
+
 describe('ContactLensesCatlog TS_012' ,function(){
     beforeEach(()=>{
         cy.visit('/contact-lenses')
-       // homepage.closeDiscountPOpup()
+        homepage.closeDiscountPOpup()
     })
 
     it('TC_CL_001 -Verify that on "Contact Lenses" page, under the "Brands" filter, number of brands is shown in a list where the user can search or select one or multiple brands',()=>{
@@ -39,9 +39,6 @@ describe('ContactLensesCatlog TS_012' ,function(){
     it('TC_CL_007 - Verify that on the "Contact Lenses" page, the "Reviews" filter is available and it is applying correctly on the product list, the product list can be filter on base of reviews on the product',()=>{
         contantlensesCatlog.applyReviewFilter()
     })
-<<<<<<< HEAD
-})
-=======
     it('TC_CL_008 - Verify that on the "Contact Lenses" page, After applying any filter the "Reset All Filters" option is shown on the top of the product catalogue',()=>{
     contantlensesCatlog.applyContactLensScheduleFilter()//checking agian Reset All Filters option on any filter
     })
@@ -55,4 +52,3 @@ describe('ContactLensesCatlog TS_012' ,function(){
     })
 })
 
->>>>>>> 8a5b4453ac84ceb7d354e4fe1277a524dd337cd7

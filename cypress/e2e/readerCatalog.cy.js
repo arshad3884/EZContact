@@ -11,13 +11,7 @@ describe('TS_013  Reader Products Catalog',function(){
         cy.visit('/readers')
         homepage.closeDiscountPOpup()
     })
-    before(() => {
-        Cypress.on('uncaught:exception', (err, runnable) => {
-          // Returning false prevents Cypress from failing the test
-          return false;
-        });
-    })
-
+    
     it('TC_RD_001 - Verify that on READERS page, "OFFER LINK" option is available on top of header',()=>{
         readercatlog.validateDiscountLinkk()
     })
