@@ -14,11 +14,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+    "cypress": "^13.6.1",
+    "cypress-mochawesome-reporter": "^3.7.0",
+    "xpath": "^0.0.34"
+=======
     "cypress-mochawesome-reporter": "^3.7.0"
+>>>>>>> 9917614856139c939f8587fa602181e8e893d11d
   },
   "devDependencies": {
     "cypress": "^13.6.1",
     "cypress-if": "^1.10.5",
-    "cypress-iframe": "^1.0.1"
+    "cypress-iframe": "^1.0.1",
+    "cypress-xpath": "^2.0.1"
   }
 }

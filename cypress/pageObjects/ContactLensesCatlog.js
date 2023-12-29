@@ -23,16 +23,28 @@ export class ContactLensesCatlog{
         cy.wait(2000)
     }
     applyContactLensScheduleFilter(){
+<<<<<<< HEAD
+        const random = reuse.getRandomNumber(1,4)
+        cy.wait(2000)
+        cy.get('input[unbxdparam_facetname="contact_lens_schedule_uFilter"]').eq(random).click({force:true})
+=======
         const random = reuse.getRandomNumber(0,3)
         cy.get('input[unbxdparam_facetname="contact_lens_schedule_uFilter"]').eq(random).click()
+>>>>>>> 9917614856139c939f8587fa602181e8e893d11d
         cy.wait(3000)
         cy.get('[class="clear_all_selected_facets"]').should('contain.text','Reset All Filters').click() //clear Reset All Filters
         cy.wait(4000)
         cy.get('input[unbxdparam_facetname="contact_lens_schedule_uFilter"]').eq(random).click()
     }
     applyContactLensTypesFilter(){
+<<<<<<< HEAD
+        const random = reuse.getRandomNumber(1,5) 
+        cy.wait(2000)
+        cy.get('input[unbxdparam_facetname="contact_lens_type_uFilter"]').eq(random).click({force:true})
+=======
         const random = reuse.getRandomNumber(0,4) 
         cy.get('input[unbxdparam_facetname="contact_lens_type_uFilter"]').eq(random).click()
+>>>>>>> 9917614856139c939f8587fa602181e8e893d11d
         cy.wait(2000)
         cy.get('[class="clear_all_selected_facets"]').should('contain.text','Reset All Filters').click() //clear Reset All Filters
         cy.wait(4000)
@@ -64,6 +76,37 @@ export class ContactLensesCatlog{
         cy.wait(4000)
         cy.get('input[unbxdparam_facetname="unbxd_rating_average_uFilter"]').eq(random).click()
 
+    }
+    applyProductsperPage(){
+        //const random = reuse.getRandomNumber(1,4)
+        // Define the list of numbers
+        const numbers = [30, 48, 72, 96];
+// Generate a random index
+        const randomIndex = Math.floor(Math.random() * numbers.length);
+// Use the random index to select a number
+        const selectedNumber = numbers[randomIndex];
+        cy.get('.unbxd-pagesize-container select').should('exist')//.select(count)
+       // cy.get('.unbxd-pagesize-container select').eq(selectedNumber).click()
+        cy.wait(3000)
+
+    }
+    selectRandomSortingOption()
+    {
+        const randomNumber  = reuse.getRandomNumber(1,6) //Generate a random number 1-6
+        cy.get('.unbxd-sort-container select').should('exist').select(randomNumber) 
+    }
+    showTotalProducts()
+    {
+        cy.get('.unbxd-pageresult').should('contain.text','Results') //Validate paging component
+        cy.get('.unbxd_totalPages:last-child').invoke('text').then((totalResults)=>{
+        cy.log(totalResults);  //Print Total results shown on console
+      })
+    }
+    clickPagination(){
+        cy.get('.unbxd_page').each((page, index, $List)=>{
+            cy.get('.unbxd_last a').should('exist').click({force:true}) //Click Next
+            cy.wait(5000)
+          })
     }
 
 }

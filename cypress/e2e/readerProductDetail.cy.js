@@ -8,16 +8,12 @@ const homepage = new Homepage
 const readerProductDetail = new ReaderProductDetail
 
 describe('ReaderProductDetail TS_018',function(){
-    before(() => {
-        Cypress.on('uncaught:exception', (err, runnable) => {
-          // Returning false prevents Cypress from failing the test
-          return false;
-        });
+    beforeEach(()=>{
+        cy.visit('/readers')
+        homepage.closeDiscountPOpup()
     })
 
     it ('TC_RDPD_001 - Verify the content on the Readers Product detail page shown correctly',function(){
-        cy.visit('https://www.ezcontacts.com/readers')
-        homepage.closeDiscountPOpup()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.validateAllContentOnProductDetailPage()
     })
@@ -30,8 +26,6 @@ describe('ReaderProductDetail TS_018',function(){
     })
 
     it ('TC_RDPD_003 - Validate the "QUESTIONS & ANSWERS" section and functionality on the product detail page',function(){
-        cy.visit('https://www.ezcontacts.com/readers')
-        homepage.closeDiscountPOpup()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.goToQuestionAnswersSection()
     })
@@ -44,15 +38,11 @@ describe('ReaderProductDetail TS_018',function(){
     })
 
     it ('TC_RDPD_005 - Validate "Add to Cart" functionality on the Readers product page including "Accident Protection"',function(){
-        cy.visit('https://www.ezcontacts.com/readers')
-        homepage.closeDiscountPOpup()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.addAProductToCartWithProtectionAndValidate()
     })
 
     it ('TC_RDPD_006 - Validate "Add to Cart" functionality on the Readers product page Excluding "Accident Protection" ',function(){
-        cy.visit('https://www.ezcontacts.com/readers')
-        homepage.closeDiscountPOpup()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.addAProductToCartWithoutProtectionAndValidate()
     })
