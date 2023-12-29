@@ -44,9 +44,9 @@ describe('HomePage TS_002', function(){
 
     it ('TC_HP_006 - Validate that the "Clearance" Menu from the navbar is functional', function(){
         homepage.gotoClearancePage() //Validate and goto clearance page
-    })
-    
+    })    
    /* it ('TC_HP_007 - Validate that the "SALES" tab from the navbar is functional', function(){
+
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.validatePromotionBanner() //validate Promotion banner

@@ -1,6 +1,6 @@
 
 ///<reference types='Cypress'/>
-import { DiscountPopup } from "../pageObjects/Discount_popup"
+import { DiscountPopup } from "../pageObjects/DiscountPopup"
 import { ReuseableCode } from "../support/ReuseableCode"
 
 const discount_popup = new DiscountPopup();
