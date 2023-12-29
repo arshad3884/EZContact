@@ -1,10 +1,10 @@
-export class EyeglassesProductDetail {
+export class SunglassesProductDetail {
     addLoginDetails() {
         cy.visit('https://www.ezcontacts.com/account/sign-in')
         cy.get('#UserEmail').type('testqatester81@gmail.com')
         cy.get('#new-password').type('123456')
         cy.get('#sign-in-submit-btn').should('have.value', 'Sign in').click()
-        cy.get(':nth-child(15) > .dropdown-toggle').should('contain.text', 'EYEGLASSES').click()
+        cy.get(':nth-child(14) > .dropdown-toggle').should('contain.text', 'SUNGLASSES').click()
     }
     goToAddReview() {
         cy.get('#reviews').should('contain.text', 'RATINGS & REVIEWS')
@@ -84,26 +84,7 @@ export class EyeglassesProductDetail {
         cy.get('.jsRemoveCartProduct').eq(0).click()
 
     }
-    addProductToCartwithoutProtection() {
-        cy.get('.total-amount > .col-sm-4').then((element) => {
-            const ele = element.text()
-            var elem = ele.split("$")
-            const price = elem[1].trim() //get the price
-            cy.log(price)
-            cy.get('.product-summary-add-cart-btn > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
-            cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
-            cy.get('#removeProtectionBtn').should('contain.text', "I don't want protection").click()
-            cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')
-            cy.get('#itemTotal').then((element1) => {
-                const ele1 = element1.text()
-                var elem1 = ele1.split("$")
-                const price1 = elem1[1].trim() //get the price
-                cy.log(price1)
-                expect(Number(price1)).be.equal(Number(price)) //Validate that total is updated after applying promo
-            })
-        })
-    }
-    addProductToCartwithProtection() {
+    addProductToCartWithProtection() {
         cy.get('.total-amount > .col-sm-4').then((element) => {
             const ele = element.text()
             var elem = ele.split("$")
@@ -118,22 +99,21 @@ export class EyeglassesProductDetail {
                 var elem1 = ele1.split("$")
                 const price1 = elem1[1].trim() //get the price
                 cy.log(price1)
+                //expect(Number(price1)).be.equal(Number(price)) //Validate that total is updated after applying promo
             })
         })
     }
-    addLensColor(lensColor)
+    addLensColorClear()
     {
-         cy.get('#cleared-lens').click()
+        cy.get('#cleared-lens').should('contain.text','Clear').click()
          cy.wait(1000)
-         cy.get('div[class="lens-color"]').contains(lensColor).should('contain.text',lensColor).click()
-         cy.wait(1000)
+         cy.get('#sunglass-continue-btn').click()
          cy.get('#complete-btn').should('contain.text', 'Complete').click() //Complete button
     }
-    addLensColorWithGradient()
+    addLensColorTinted(lensColor)
     {
         cy.get('#colored-lens').click()
-        cy.wait(1000)
-        cy.get('#solid-color > .ezMarkLabel').click()
+        cy.get('label[class="ezMarkLabel"]').contains(lensColor).should('contain.text',lensColor).click()
         cy.wait(1000)
         cy.get('#complete-btn').should('contain.text', 'Complete').click()
     }
@@ -173,5 +153,68 @@ export class EyeglassesProductDetail {
     selectBlueLightLensDetail(lens)
     {
         cy.get('div[class="col-md-10 col-sm-9"]').contains(lens).should('contain.text',lens).click()
+    }
+    applyWebBrandFilter()
+    {
+        cy.get('#brand_uFilter_Web').click()
+        cy.get('.selected-facet-delete').should('contain.text','Web')
+        
+    }
+    addProductToCartWithoutProtection() {
+        cy.get('.total-amount > .col-sm-4').then((element) => {
+            const ele = element.text()
+            var elem = ele.split("$")
+            const price = elem[1].trim() //get the price
+            cy.log(price)
+            cy.get('.product-summary-add-cart-btn > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
+            cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
+            cy.get('#removeProtectionBtn').should('contain.text', "I don't want protection").click()
+            cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')
+            cy.get('#itemTotal').then((element1) => {
+                const ele1 = element1.text()
+                var elem1 = ele1.split("$")
+                const price1 = elem1[1].trim() //get the price
+                cy.log(price1)
+                expect(Number(price1)).be.equal(Number(price)) //Validate that total is updated after applying promo
+            })
+        })
+    }
+    addProductToCartWithoutProtection1() {
+        cy.get('.price-block > .curr-price').then((element) => {
+            const ele = element.text()
+            var elem = ele.split("$")
+            const price = elem[1].trim() //get the price
+            cy.log(price)
+            cy.get('.col-md-12 > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
+            cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
+            cy.get('#removeProtectionBtn').should('contain.text', "I don't want protection").click()
+            cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')
+            cy.get('#itemTotal').then((element1) => {
+                const ele1 = element1.text()
+                var elem1 = ele1.split("$")
+                const price1 = elem1[1].trim() //get the price
+                cy.log(price1)
+                expect(Number(price1)).be.equal(Number(price)) //Validate that total is updated after applying promo
+            })
+        })
+    }
+    addProductToCartWithProtection1() {
+        cy.get('.price-block > .curr-price').then((element) => {
+            const ele = element.text()
+            var elem = ele.split("$")
+            const price = elem[1].trim() //get the price
+            cy.log(price)
+            cy.get('.col-md-12 > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
+            cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
+            cy.get('#addProtectionBtn').should('contain.text', "Protect my purchase").click()
+            cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')
+            cy.get('#itemTotal').then((element1) => {
+                const ele1 = element1.text()
+                var elem1 = ele1.split("$")
+                const price1 = elem1[1].trim() //get the price
+                cy.log(price1)
+                //expect(Number(price1)).be.equal(Number(price)) //Validate that total is updated after applying promo
+            })
+        })
     }
 }
