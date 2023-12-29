@@ -7,12 +7,6 @@ import { Runnable } from "mocha";
 const homepage= new Homepage
 const contantlensesCatlog = new ContactLensesCatlog
 describe('ContactLensesCatlog TS_012' ,function(){
-    before(() => {
-        Cypress.on('uncaught:exception', (err, runnable) => {
-          // Returning false prevents Cypress from failing the test
-          return false;
-        });
-    })
     beforeEach(()=>{
       
         cy.visit('/contact-lenses')

@@ -6,7 +6,7 @@ export class ContactLensesProductDetail
         cy.get('#UserEmail').type('testqatester81@gmail.com')
         cy.get('#new-password').type('123456')
         cy.get('#sign-in-submit-btn').should('have.value','Sign in').click()
-        cy.get(':nth-child(17) > .dropdown-toggle').click()
+        cy.get(':nth-child(16) > .dropdown-toggle').click()
     }
     goToAddReview()
     {

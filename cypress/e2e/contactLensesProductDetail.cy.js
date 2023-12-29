@@ -27,7 +27,6 @@ describe('ContactLensesProductDetail TS_017',function(){
 
     it ('TC_CLPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
       contactLensesProductDetail.addLoginDetails()
-      homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage()
       contactLensesProductDetail.goToAddReview()
     })
@@ -68,7 +67,6 @@ describe('ContactLensesProductDetail TS_017',function(){
 
     it ('TC_CLPD_009 - Validate on the contact-lenses product if user clicks on "Add to cart" without selecting any option app shows an error',function(){
       cy.visit('https://www.ezcontacts.com/contact-lenses')
-      homepage.closeDiscountPOpup()
       contactLensesProductDetail.goToFirstProductDetailPage() 
       contactLensesProductDetail.addProductToCartWithoutSelect()
     })

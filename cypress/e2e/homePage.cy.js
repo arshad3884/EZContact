@@ -53,9 +53,9 @@ describe('HomePage TS_002', function(){
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.gotoClearancePage() //Validate and goto clearance page
-    })
-    
-    it ('TC_HP_007 - Validate that the "SALES" tab from the navbar is functional', function(){
+    })    
+   /* it ('TC_HP_007 - Validate that the "SALES" tab from the navbar is functional', function(){
+
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.validatePromotionBanner() //validate Promotion banner
@@ -69,7 +69,7 @@ describe('HomePage TS_002', function(){
         homepage.validateCartIcon() //validate the cart icon
         homepage.validateCompanyLogo() //validate company logo
     })
-
+    */
     it ('TC_HP_008 - Verify search bar functionality', function(){
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup

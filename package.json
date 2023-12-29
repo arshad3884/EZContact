@@ -4,20 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules\\.bin\\cypress run",
-    "report-chrome": "npx cypress run --browser chrome",
-    "report-chrome-headed": "npx cypress run --headed --browser chrome",
-    "test-dashboard": "npx cypress run --record --key 8450fc4b-68ae-4fe8-b5ba-fd35f0a3c38c --browser chrome --headed"
+    "start": "npx cypress run --record",
+    "run-chrome": "npx cypress run --browser chrome",
+    "run-chrome-headed": "npx cypress run --headed --browser chrome",
+    "report-To-dashboard": "npx cypress run --record --key de0f622a-9248-40da-8313-c3f484995d37 --browser chrome --headed",
+    "homePage": "cypress run --record --spec cypress/e2e/homePage.cy.js --headed --chrome"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "cypress": "^13.6.1",
     "cypress-mochawesome-reporter": "^3.7.0",
     "xpath": "^0.0.34"
+=======
+    "cypress-mochawesome-reporter": "^3.7.0"
+>>>>>>> 9917614856139c939f8587fa602181e8e893d11d
   },
   "devDependencies": {
+    "cypress": "^13.6.1",
     "cypress-if": "^1.10.5",
     "cypress-iframe": "^1.0.1",
     "cypress-xpath": "^2.0.1"
