@@ -37,12 +37,8 @@ validateOrder()
                 cy.get('.Button.locator_button.customizable').should('have.text','Locate Order').click() //Locate Order button
                 cy.wait(3000)
                 cy.get('.error.customizable').should('contain.text','Order not found')
-            
             })
-
-           
           });
-
     }
 
     validateAccountSettingTab()

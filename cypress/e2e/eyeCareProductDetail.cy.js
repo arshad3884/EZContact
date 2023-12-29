@@ -7,13 +7,6 @@ const homepage = new Homepage
 const eyeCareProductDetail = new EyeCareProductDetail
 
 describe('EyeCareProductDetail TS_019',function(){
-    before(() => {
-        Cypress.on('uncaught:exception', (err, runnable) => {
-          // Returning false prevents Cypress from failing the test
-          return false;
-        });
-    })
-
     it ('TC_ECPD_001 - Verify the content on the EyeCare Product detail page shown correctly',function(){
         cy.visit('https://www.ezcontacts.com/eye-care')
         homepage.closeDiscountPOpup()

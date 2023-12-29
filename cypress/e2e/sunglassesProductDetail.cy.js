@@ -8,7 +8,7 @@ const homepage = new Homepage
 const sunglassesProductDetail = new SunglassesProductDetail
 
 describe('SunglassesProductDetail TS_016',function(){
-    before(() => {
+    beforeEach(() => {
        
     })
 
@@ -248,123 +248,158 @@ describe('SunglassesProductDetail TS_016',function(){
       sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     }) 
-    /*
+    
     it ('TC_SPD_021 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensTypeBifocal("Bifocal - Flat Top 35")
-      sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Enhanced Anti Reflective (Crizal Sapphire HR)")
-      sunglassesProductDetail.addLensColor1("Transitions", "Transitions® Gen 8™ Brown")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.selectLensDetails("Super Thin 1.67 Hi Index", "Superior Anti Reflective (Crizal Easy Pro)")
+      sunglassesProductDetail.addLensColor1("Transitions", "Transitions® Gen 8™")
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
     
     it ('TC_SPD_022 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
-      sunglassesProductDetail.selectLensTypeBifocal("Standard Progressive")
-      sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Blue Light Blocking AR (BlueShield)")
-      sunglassesProductDetail.addLensColor1("Transitions", "Transitions® Gen 8™ Graphite Green")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
+      sunglassesProductDetail.selectLensTypeBifocal("Bifocal - Flat Top 35")
+      sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Enhanced Anti Reflective (Crizal Sapphire HR)")
+      sunglassesProductDetail.addLensColor1("Transitions", "Transitions® Gen 8™ Brown")
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
     it ('TC_SPD_023 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensTypeBifocal("Standard Progressive")
-      sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Blue-Violet Light AR (Crizal Prevencia)")
-      sunglassesProductDetail.addLensColor1("Photochromic Light-Adaptive", "Photochromic Brown")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Blue Light Blocking AR (BlueShield)")
+      sunglassesProductDetail.addLensColor1("Transitions", "Transitions® Gen 8™ Graphite Green")
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
     it ('TC_SPD_024 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
+      sunglassesProductDetail.selectLensTypeBifocal("Standard Progressive")
+      sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Blue-Violet Light AR (Crizal Prevencia)")
+      sunglassesProductDetail.addLensColor1("Photochromic Light-Adaptive", "Photochromic Brown")
+      sunglassesProductDetail.addProductToCartWithProtection()
+      sunglassesProductDetail.removeAProductFromCart()
+    })
+
+    it ('TC_SPD_025 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
+      cy.visit('/sunglasses')
+      homepage.closeDiscountPOpup()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Non-Corrective (Plano) Lenses")
       sunglassesProductDetail.selectLensDetails("Premium Standard Plastic", "Standard Anti Reflective")
       sunglassesProductDetail.addLensColor1("Photochromic Light-Adaptive", "Photochromic Brown")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_025 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom LenseNon-Corrective (Plano) Lenses',function(){
+    it ('TC_SPD_026 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Non-Corrective (Plano) Lenses")
       sunglassesProductDetail.selectLensDetails("Impact Resistant Polycarbonate", "Super Hydrophobic AR")
-      sunglassesProductDetail.addLensColor("Clear")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addLensColorClear()
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_026 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom LenseNon-Corrective (Plano) Lenses',function(){
+    it ('TC_SPD_027 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Non-Corrective (Plano) Lenses")
       sunglassesProductDetail.selectLensDetails("Super Thin 1.67 Hi Index", "Superior Anti Reflective (Crizal Easy Pro)")
-      sunglassesProductDetail.addLensColor("Color Tinted")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addLensColorTinted("Solid")
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_027 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom LenseNon-Corrective (Plano) Lenses',function(){
+    it ('TC_SPD_028 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Non-Corrective (Plano) Lenses")
       sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Enhanced Anti Reflective (Crizal Sapphire HR)")
-      sunglassesProductDetail.addLensColorWithGradient()
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addLensColorTinted("Gradient")
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_028 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom LenseNon-Corrective (Plano) Lenses',function(){
+    it ('TC_SPD_029 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Non-Corrective (Plano) Lenses")
       sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Blue Light Blocking AR (BlueShield)")
       sunglassesProductDetail.addLensColor1("Polarized", "Polarized Brown")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_029 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom LenseNon-Corrective (Plano) Lenses',function(){
+    it ('TC_SPD_030 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Non-Corrective (Plano) Lenses")
       sunglassesProductDetail.selectLensDetails("Ultra Thin 1.74 Hi Index", "Blue-Violet Light AR (Crizal Prevencia)")
       sunglassesProductDetail.addLensColor1("Polarized", "Polarized Brown")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_030 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense(Blue Light lenses)',function(){
+    it ('TC_SPD_031 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Blue Light lenses")
       sunglassesProductDetail.selectBlueLightLensDetail("Blue Light Blocking AR")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it ('TC_SPD_031 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense(Blue Light lenses)',function(){
+    it.only ('TC_SPD_032 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
-      sunglassesProductDetail.goToFirstProductDetailPage()
+      sunglassesProductDetail.applyWebBrandFilter()
+      cy.selectRandomProduct()
+      cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
       sunglassesProductDetail.selectLensType("Blue Light lenses")
       sunglassesProductDetail.selectBlueLightLensDetail("Blue-Violet Light AR")
-      sunglassesProductDetail.addProductToCartwithProtection()
+      sunglassesProductDetail.addProductToCartWithProtection()
       sunglassesProductDetail.removeAProductFromCart()
-    })*/
+    })
   })
