@@ -53,9 +53,9 @@ describe('HomePage TS_002', function(){
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.gotoClearancePage() //Validate and goto clearance page
-    })
-    
+    })    
    /* it ('TC_HP_007 - Validate that the "SALES" tab from the navbar is functional', function(){
+
         cy.visit('/')
         homepage.closeDiscountPOpup() //close discount popup
         homepage.validatePromotionBanner() //validate Promotion banner
