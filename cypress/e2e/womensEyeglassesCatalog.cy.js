@@ -1,4 +1,4 @@
-// <reference types = "Cypress"/>
+/// <reference types = "Cypress"/>
 
 import { WomensEyeglassesCatalog } from "../pageObjects/WomensEyeglassesCatalog";
 import { Homepage } from "../pageObjects/Homepage";
@@ -8,7 +8,7 @@ const womensEyeglassesCatalog = new WomensEyeglassesCatalog();
 const homepage = new Homepage();
 const reuseableCode = new ReuseableCode();
 
-describe("Women Eyeglasses Products Catalog TS_010", function () {
+describe("TS_010 - Women Eyeglasses Products Catalog", function () {
   beforeEach(() => {
     cy.visit("/womens-eyeglasses");
     homepage.closeDiscountPOpup();

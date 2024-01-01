@@ -2,12 +2,15 @@
 
 import { Homepage } from "../pageObjects/Homepage"
 import { ReaderProductDetail } from "../pageObjects/ReaderProductDetail"
-
+import {AccountPage} from "../pageObjects/AccountPage"
+import {MenuOptions} from "../pageObjects/MenuOptions"
 
 const homepage = new Homepage
 const readerProductDetail = new ReaderProductDetail
+const accountPage = new AccountPage
+const menuOptions = new MenuOptions
 
-describe('ReaderProductDetail TS_018',function(){
+describe('TS_018 - ReaderProductDetail',function(){
     beforeEach(()=>{
         cy.visit('/readers')
         homepage.closeDiscountPOpup()
@@ -19,8 +22,9 @@ describe('ReaderProductDetail TS_018',function(){
     })
 
     it ('TC_RDPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
-        readerProductDetail.addLoginDetails()
-        homepage.closeDiscountPOpup()
+        cy.get('.top-login > [href="/account/sign-in"]').click()
+        accountPage.signin('testqatester81@gmail.com','123456')
+        menuOptions.goToReadersCatalog()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.goToAddReview()
     })
@@ -31,10 +35,12 @@ describe('ReaderProductDetail TS_018',function(){
     })
 
     it ('TC_RDPD_004 - Verify that the user can add any Readers product to the Wishlist',function(){
-        readerProductDetail.addLoginDetails()
-        homepage.closeDiscountPOpup()
+        cy.get('.top-login > [href="/account/sign-in"]').click()
+        accountPage.signin('testqatester81@gmail.com','123456')
+        menuOptions.goToReadersCatalog()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.addAProductToWishList()
+        readerProductDetail.removeProductFromWishlist()
     })
 
     it ('TC_RDPD_005 - Validate "Add to Cart" functionality on the Readers product page including "Accident Protection"',function(){

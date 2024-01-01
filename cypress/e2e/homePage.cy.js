@@ -1,12 +1,12 @@
 /// <reference types = "Cypress"/>
 
-import{ Homepage } from "../pageObjects/Homepage"
+import { Homepage } from "../pageObjects/Homepage"
 import { ReuseableCode } from "../support/ReuseableCode"
 
 const homepage = new Homepage
 const reuseableCode = new ReuseableCode
 
-describe('HomePage TS_002', function(){
+describe('TS_002 - HomePage', function(){
     beforeEach(()=>{
         cy.visit('/')
         homepage.closeDiscountPOpup()

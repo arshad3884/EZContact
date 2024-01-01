@@ -2,12 +2,16 @@
 
 import { Homepage } from "../pageObjects/Homepage"
 import { EyeglassesProductDetail } from "../pageObjects/EyeglassesProductDetail"
-
+import {AccountPage} from "../pageObjects/AccountPage"
+import {MenuOptions} from "../pageObjects/MenuOptions"
+ 
 
 const homepage = new Homepage
 const eyeglassesProductDetail = new EyeglassesProductDetail
+const accountPage = new AccountPage
+const menuOptions = new MenuOptions
 
-describe('EyeglassesProductDetail TS_016',function(){
+describe('TS_016 - EyeglassesProductDetail',function(){
   beforeEach(()=>{
     cy.visit('/eyeglasses')
     homepage.closeDiscountPOpup()
@@ -18,11 +22,12 @@ describe('EyeglassesProductDetail TS_016',function(){
       eyeglassesProductDetail.validateAllContentOnProductDetailPage()
     })
 
-    it ('TC_EPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
-        eyeglassesProductDetail.addLoginDetails()
-       // homepage.closeDiscountPOpup()
-        eyeglassesProductDetail.goToFirstProductDetailPage()
-        eyeglassesProductDetail.goToAddReview()
+    it('TC_EPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
+      cy.get('.top-login > [href="/account/sign-in"]').click()
+      accountPage.signin('testqatester81@gmail.com','123456')
+      menuOptions.goToEyeglassesCatalog() 
+      eyeglassesProductDetail.goToFirstProductDetailPage()
+      eyeglassesProductDetail.goToAddReview()
     })
 
     it ('TC_EPD_003 - Validate the "QUESTIONS & ANSWERS" section and functionality on product detail page',function(){
@@ -31,10 +36,12 @@ describe('EyeglassesProductDetail TS_016',function(){
     })
 
     it ('TC_EPD_004 - Verify that the user can add any eyeglasses product to Wishlist',function(){
-      eyeglassesProductDetail.addLoginDetails()
-     // homepage.closeDiscountPOpup()
+      cy.get('.top-login > [href="/account/sign-in"]').click()
+      accountPage.signin('testqatester81@gmail.com','123456')
+      menuOptions.goToEyeglassesCatalog()
       eyeglassesProductDetail.goToFirstProductDetailPage()
       eyeglassesProductDetail.addAProductToWishList()
+      eyeglassesProductDetail.removeProductFromWishlist()
     })
 
     it ('TC_EPD_005 - Validate "Add to Cart" functionality on the eyeglasses product page without adding Accident Protection and adding a custom Lense',function(){

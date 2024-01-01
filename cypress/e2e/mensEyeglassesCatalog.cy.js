@@ -8,7 +8,7 @@ const mensEyeglassesCatalog = new MensEyeglassesCatalog();
 const homepage = new Homepage();
 const reuseableCode = new ReuseableCode();
 
-describe("Men Eyeglasses Products Catalog TS_009", function () {
+describe("TS_009 - Men Eyeglasses Products Catalog", function () {
   beforeEach(() => {
     cy.visit("/mens-eyeglasses");
     homepage.closeDiscountPOpup();

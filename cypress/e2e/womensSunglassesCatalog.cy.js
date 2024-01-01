@@ -8,7 +8,7 @@ const womensSunglassesCatalog = new WomensSunglassesCatalog
 const homepage = new Homepage
 const reuseableCode = new ReuseableCode
 
-describe('Women Sunglasses Products TS_007',function(){
+describe('TS_007 - Women Sunglasses Products',function(){
     
     beforeEach(() => {
       cy.visit('/womens-sunglasses')

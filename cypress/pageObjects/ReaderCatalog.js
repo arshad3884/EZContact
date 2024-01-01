@@ -8,17 +8,15 @@ validateDiscountLinkk(){
 }
 validateFreeShippinglink(){
     cy.get('.cls-free-shipping-icon-fix').click()
-    cy.get('body > header:nth-child(30) > div:nth-child(7) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h4:nth-child(2)')
+    cy.get(' h4[id="myModalLabel"]').eq(0)
     .should('contain','Free Shipping Offer Details')//validate the popup text
     cy.get("div[id='free-shipping-modal'] span[aria-hidden='true']").click({force:true})//close popup 
     cy.wait(2000)
     cy.get("a[data-target='#lowest-price-guarantee-modal']").click()
     cy.wait(2000)
-    cy.get("body > header:nth-child(30) > div:nth-child(8) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h4:nth-child(2)")
-    .should('contain','Price Match Guarantee')
-
+    cy.get('h4[id="myModalLabel"]').eq(1).should('contain','Price Match Guarantee')
 }
-validateReaderTital(){
+validateReaderTitle(){
     cy.get('.section-title').should('contain','Readers')
     cy.get("ol[class='breadcrumb'] li a").should('contain','Home')
     cy.get("ol[class='breadcrumb'] li[class='active']").should('contain','Reader')
@@ -32,12 +30,11 @@ checkGenderfunctionality(){
     cy.xpath("//h2[@class='section-title']").should('have.text',"Women's Readers")
     
 }
-applayPariceFilter(){
+applyPriceFilter(){
     const Random = Reuse.getRandomNumber(1,5)
     cy.xpath("//h4[normalize-space()='Price']").should('contain','Price')
     cy.get('input[name="data[Filter][price][]"]').eq(Random).click({force:true})
     cy.wait(3000)
-    
 }
 
 }

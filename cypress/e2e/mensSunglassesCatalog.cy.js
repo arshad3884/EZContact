@@ -8,7 +8,7 @@ const mensSunglassesCatalog = new MensSunglassesCatalog
 const homepage = new Homepage
 const reuseableCode = new ReuseableCode
 
-describe('Men Sunglasses Products TS_006',function(){
+describe('TS_006 - Men Sunglasses Products',function(){
   beforeEach(()=>{
     cy.visit('/mens-sunglasses')
     homepage.closeDiscountPOpup()
