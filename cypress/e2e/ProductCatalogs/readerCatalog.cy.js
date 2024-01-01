@@ -1,8 +1,8 @@
 /// <reference types = "Cypress"/>
 
-import { Homepage } from "../pageObjects/Homepage";
-import { ReuseableCode } from "../support/ReuseableCode";
-import { ReaderCatlog } from "../pageObjects/ReaderCatalog";
+import { Homepage } from "../../pageObjects/Homepage";
+import { ReuseableCode } from "../../support/ReuseableCode";
+import { ReaderCatlog } from "../../pageObjects/ReaderCatalog";
 
 const homepage = new Homepage
 const readercatlog = new ReaderCatlog

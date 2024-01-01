@@ -1,8 +1,8 @@
 /// <reference types = "Cypress"/>
 
-import { WomensEyeglassesCatalog } from "../pageObjects/WomensEyeglassesCatalog";
-import { Homepage } from "../pageObjects/Homepage";
-import { ReuseableCode } from "../support/ReuseableCode";
+import { WomensEyeglassesCatalog } from "../../pageObjects/WomensEyeglassesCatalog";
+import { Homepage } from "../../pageObjects/Homepage";
+import { ReuseableCode } from "../../support/ReuseableCode";
 
 const womensEyeglassesCatalog = new WomensEyeglassesCatalog();
 const homepage = new Homepage();

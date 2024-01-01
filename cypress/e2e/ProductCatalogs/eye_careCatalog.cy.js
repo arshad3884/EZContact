@@ -1,6 +1,6 @@
 /// <reference types = "Cypress"/>
-import { Homepage } from "../pageObjects/Homepage";
-import { Eye_careCatalog } from "../pageObjects/Eye_careCatalog";
+import { Homepage } from "../../pageObjects/Homepage";
+import { Eye_careCatalog } from "../../pageObjects/Eye_careCatalog";
 import { beforeEach } from "mocha";
 
 const eyecare = new Eye_careCatalog

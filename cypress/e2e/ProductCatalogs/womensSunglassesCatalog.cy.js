@@ -1,8 +1,8 @@
 // <reference types = "Cypress"/>
 
-import { WomensSunglassesCatalog } from "../pageObjects/WomensSunglassesCatalog"
-import { Homepage } from "../pageObjects/Homepage"
-import { ReuseableCode } from "../support/ReuseableCode"
+import { WomensSunglassesCatalog } from "../../pageObjects/WomensSunglassesCatalog"
+import { Homepage } from "../../pageObjects/Homepage"
+import { ReuseableCode } from "../../support/ReuseableCode"
 
 const womensSunglassesCatalog = new WomensSunglassesCatalog
 const homepage = new Homepage

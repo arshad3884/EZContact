@@ -1,7 +1,7 @@
 
 /// <reference types = "Cypress"/>
-import { Homepage } from "../pageObjects/Homepage";
-import { ContactLensesCatlog } from "../pageObjects/ContactLensesCatlog";
+import { Homepage } from "../../pageObjects/Homepage";
+import { ContactLensesCatlog } from "../../pageObjects/ContactLensesCatlog";
 
 const homepage= new Homepage
 const contantlensesCatlog = new ContactLensesCatlog

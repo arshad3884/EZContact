@@ -1,9 +1,9 @@
 /// <reference types = "Cypress"/>
 
-import { Homepage } from "../pageObjects/Homepage"
-import { EyeCareProductDetail } from "../pageObjects/EyeCareProductDetail" 
-import { AccountPage } from "../pageObjects/AccountPage"
-import { MenuOptions } from "../pageObjects/MenuOptions"
+import { Homepage } from "../../pageObjects/Homepage"
+import { EyeCareProductDetail } from "../../pageObjects/EyeCareProductDetail" 
+import { AccountPage } from "../../pageObjects/AccountPage"
+import { MenuOptions } from "../../pageObjects/MenuOptions"
 
 const homepage = new Homepage
 const eyeCareProductDetail = new EyeCareProductDetail
