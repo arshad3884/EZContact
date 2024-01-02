@@ -6,7 +6,7 @@ import { beforeEach } from "mocha";
 const eyecare = new Eye_careCatalog
 const HomePage =new Homepage
 
-describe('TS_014 EYE-WEAR Products Catalog',function(){
+describe('TS_014 Eye-care Products Catalog',function(){
 
     beforeEach(()=>{
         cy.visit('/eye-care')

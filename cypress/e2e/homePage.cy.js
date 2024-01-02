@@ -126,7 +126,7 @@ describe('TS_002 - HomePage', function(){
         homepage.validateSocialIconsInFooter() //Validate Social Icons
     })
 
-    it ('TC_HP_023 - Validate the copyright claim info in footer section', function(){
+    it('TC_HP_023 - Validate the copyright claim info in footer section', function(){
         homepage.validateCopyRight() //Validate copyright info
     })
 })

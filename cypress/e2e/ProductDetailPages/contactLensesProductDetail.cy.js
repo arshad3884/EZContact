@@ -22,7 +22,7 @@ describe('TS_017 - ContactLensesProductDetail',function(){
       contactLensesProductDetail.validateAllContentOnProductDetailPage()
     })
 
-    it.only ('TC_CLPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
+    it ('TC_CLPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
       cy.get('.top-login > [href="/account/sign-in"]').click()
       accountPage.signin('testqatester81@gmail.com','123456')
       menuOptions.goToContactLenseCatalog()

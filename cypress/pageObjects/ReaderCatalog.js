@@ -57,10 +57,11 @@ applyFrameTypeFilter(){
 }
 applyMaterialFilter(){
     const Random = Reuse.getRandomNumber(0,2)
-    cy.get("body > div:nth-child(31) > div:nth-child(3) > div:nth-child(2) > div:nth-child(6) > div:nth-child(4) > div:nth-child(1) > form:nth-child(1) > h4:nth-child(14)")
-    .should('contain','Material')
-    cy.get('input[name="data[Filter][material][]"]').eq(Random).click()
+    cy.get('#FilterReadersForm > :nth-child(14)').should('contain.text','Material')
+    //[action="/readers"] [class="nav materials-filters"] [name="data[Filter][material][]"]
+    cy.get('input[name="data[Filter][material][]"]').eq(Random).click({force:true})
     cy.wait(2000)
+    cy.get('[class="list-inline"] a[href="/readers"]').should('exist')
 }
 applySizeFilter(){
    // cy.get("h4:nth-child(8)").should('include','Size')
@@ -84,14 +85,14 @@ applyBestSellingFilter(){
     cy.get('#products-sort-order-select').select(Random)
 }
 showTotalProducts() {
-    cy.get('.unbxd-pageresult').should('contain.text', 'Results') //Validate paging component
-    cy.get('.unbxd_totalPages:last-child').invoke('text').then((totalResults) => {
+    cy.get('[class="col-sm-4 text-ash"]').should('contain.text', 'Results') //Validate paging component
+    cy.get('[class="col-sm-4 text-ash"]').invoke('text').then((totalResults) => {
         cy.log(totalResults);  //Print Total results shown on console
     })
 }
 clickPagination() {
-    cy.get('.unbxd_page').each((page, index, $List) => {
-        cy.get('.unbxd_last a').should('exist').click({ force: true }) //Click Next
+    cy.get('ul[class="pagination"] li').each((page, index, $List) => {
+        cy.get('ul[class="pagination"] li [rel="next"]').should('exist').click({ force: true }) //Click Next
         cy.wait(5000)
     })
 }

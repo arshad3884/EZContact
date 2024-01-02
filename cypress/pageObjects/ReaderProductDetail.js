@@ -34,7 +34,7 @@ export class ReaderProductDetail
     }
     addAProductToWishList()
     {
-        cy.get('.add-to-wishlist-btn').click().wait(1000) //Whishlist icon
+        cy.get('a.fa-heart-o').if().should('exist').click().wait(1000) //Whishlist icon
         cy.get('h2[class="product-name"]').eq(1).invoke('text').then((text)=>{
             cy.get('.top-login > [href="/account/main"]').click() //MyAccount link
             cy.get('.section.m-off > .account-box > .account-left-col > .nav > :nth-child(7) > a').should('have.attr','href','/account/wishlist').click() //Whishlist section

@@ -53,6 +53,7 @@ describe('TS_013  Reader Products Catalog',function(){
     })
     it('TC_RD_014 - Verify that on the "Readers" catalog page, the Pagination component is shown along with total products (Results) info',()=>{
         readercatlog.clickPagination()
+        readercatlog.showTotalProducts()
     })
 
 })
