@@ -22,7 +22,6 @@ jobs:
         with:
           browser: chrome
           headed: true
-          spec: 
           spec: |
              cypress/e2e/*.cy.js
              cypress/e2e/ProductCatalogs/*.cy.js
