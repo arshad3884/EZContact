@@ -1,64 +1,67 @@
 /// <reference types = "Cypress"/>
 
-import { Homepage } from "../pageObjects/Homepage"
-import { SunglassesProductDetail } from "../pageObjects/SunglassesProductDetail"
+import { Homepage } from "../../pageObjects/Homepage"
+import { SunglassesProductDetail } from "../../pageObjects/SunglassesProductDetail"
+import { AccountPage} from "../../pageObjects/AccountPage"
+import {MenuOptions} from "../../pageObjects/MenuOptions"
 
 
 const homepage = new Homepage
 const sunglassesProductDetail = new SunglassesProductDetail
+const accountPage = new AccountPage
+const menuOptions = new MenuOptions
 
-describe('SunglassesProductDetail TS_016',function(){
+describe('TS_016 - SunglassesProductDetail',function(){
     beforeEach(() => {
-       
+      cy.visit('/sunglasses')
+      homepage.closeDiscountPOpup()
     })
 
     it ('TC_SPD_001 - Verify the content on the Sunglasses Product detail page shown correctly',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+      
       sunglassesProductDetail.goToFirstProductDetailPage()
       sunglassesProductDetail.validateAllContentOnProductDetailPage()
     })
 
-    it ('TC_SPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
-        sunglassesProductDetail.addLoginDetails()
-        homepage.closeDiscountPOpup()
+    it('TC_SPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
+      cy.get('.top-login > [href="/account/sign-in"]').click()
+        accountPage.signin('testqatester81@gmail.com','123456')
+        menuOptions.goToReadersCatalog()
         sunglassesProductDetail.goToFirstProductDetailPage()
         sunglassesProductDetail.goToAddReview()
     })
 
     it ('TC_SPD_003 - Validate the "QUESTIONS & ANSWERS" section and functionality on product detail page',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.goToFirstProductDetailPage()
       sunglassesProductDetail.goToQuestionAnswersSection()
     })
 
-    it ('TC_SPD_004 - Verify that the user can add any sunglasses product to Wishlist',function(){
-      sunglassesProductDetail.addLoginDetails()
-      homepage.closeDiscountPOpup()
+    it('TC_SPD_004 - Verify that the user can add any sunglasses product to Wishlist',function(){
+      cy.get('.top-login > [href="/account/sign-in"]').click()
+      accountPage.signin('testqatester81@gmail.com','123456')
+      menuOptions.goToReadersCatalog()
       sunglassesProductDetail.goToFirstProductDetailPage()
       sunglassesProductDetail.addAProductToWishList()
+      sunglassesProductDetail.removeProductFromWishlist()
     })
 
     it ('TC_SPD_005 - Validate "Add to Cart" functionality on the sunglasses product page without adding a custom Lense and Accident Protection',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+  
       sunglassesProductDetail.goToFirstProductDetailPage()
       sunglassesProductDetail.addProductToCartWithoutProtection1()
       sunglassesProductDetail.removeAProductFromCart()
     })  
 
     it ('TC_SPD_006 - Validate "Add to Cart" functionality on the sunglasses product page along with Accident Protection and without adding a custom Lense',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.goToFirstProductDetailPage()
       sunglassesProductDetail.addProductToCartWithProtection1()
       sunglassesProductDetail.removeAProductFromCart()
     }) 
 
     it ('TC_SPD_007 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Distance (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense 
@@ -71,8 +74,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
     
     it ('TC_SPD_008 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Distance (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense 
@@ -85,8 +87,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_009 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Distance (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -98,8 +99,7 @@ describe('SunglassesProductDetail TS_016',function(){
       sunglassesProductDetail.removeAProductFromCart()
     }) 
     it ('TC_SPD_010 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Distance (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -112,8 +112,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_011 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Lense Distance (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -126,8 +125,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_012 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Distance (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+  
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -140,8 +138,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_013 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Reading (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+   
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -154,8 +151,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_014 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Reading (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -168,8 +164,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_015 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Reading (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+   
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -182,8 +177,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_016 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Reading (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -196,8 +190,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_017 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Reading (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -210,8 +203,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_018 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Reading (Single Vision)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click() //Add custom lense
@@ -224,8 +216,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_019 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -237,8 +228,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
 
     it ('TC_SPD_020 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+      
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -250,8 +240,7 @@ describe('SunglassesProductDetail TS_016',function(){
     }) 
     
     it ('TC_SPD_021 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -263,8 +252,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
     
     it ('TC_SPD_022 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+ 
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -276,8 +264,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_023 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -289,8 +276,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_024 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Progressive / Bifocal',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+ 
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -302,8 +288,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_025 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+ 
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -315,8 +300,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_026 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -328,8 +312,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_027 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+     
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -341,8 +324,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_028 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -354,8 +336,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_029 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -367,8 +348,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_030 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense Non-Corrective (Plano) Lenses',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+  
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -380,8 +360,7 @@ describe('SunglassesProductDetail TS_016',function(){
     })
 
     it ('TC_SPD_031 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+      
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()
@@ -391,9 +370,8 @@ describe('SunglassesProductDetail TS_016',function(){
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it.only ('TC_SPD_032 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
-      cy.visit('/sunglasses')
-      homepage.closeDiscountPOpup()
+    it ('TC_SPD_032 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
+   
       sunglassesProductDetail.applyWebBrandFilter()
       cy.selectRandomProduct()
       cy.get(':nth-child(5) > .col-md-12 > .add_custom').click()

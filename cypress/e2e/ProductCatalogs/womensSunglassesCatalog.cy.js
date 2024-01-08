@@ -1,14 +1,14 @@
 // <reference types = "Cypress"/>
 
-import { WomensSunglassesCatalog } from "../pageObjects/WomensSunglassesCatalog"
-import { Homepage } from "../pageObjects/Homepage"
-import { ReuseableCode } from "../support/ReuseableCode"
+import { WomensSunglassesCatalog } from "../../pageObjects/WomensSunglassesCatalog"
+import { Homepage } from "../../pageObjects/Homepage"
+import { ReuseableCode } from "../../support/ReuseableCode"
 
 const womensSunglassesCatalog = new WomensSunglassesCatalog
 const homepage = new Homepage
 const reuseableCode = new ReuseableCode
 
-describe('Women Sunglasses Products TS_007',function(){
+describe('TS_007 - Women Sunglasses Products',function(){
     
     beforeEach(() => {
       cy.visit('/womens-sunglasses')

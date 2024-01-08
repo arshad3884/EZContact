@@ -6,7 +6,7 @@ import { Homepage } from "../pageObjects/Homepage"
 const accountPage = new AccountPage
 const homepage = new Homepage
 
-describe('AccountPage TS_003 ',function(){
+describe('TS_003 - AccountPage ',function(){
     
     beforeEach(() => {
         cy.visit('/account/sign-in')

@@ -1,14 +1,14 @@
 // <reference types = "Cypress"/>
 
-import { MensEyeglassesCatalog } from "../pageObjects/MensEyeglassesCatalog";
-import { Homepage } from "../pageObjects/Homepage";
-import { ReuseableCode } from "../support/ReuseableCode";
+import { MensEyeglassesCatalog } from "../../pageObjects/MensEyeglassesCatalog";
+import { Homepage } from "../../pageObjects/Homepage";
+import { ReuseableCode } from "../../support/ReuseableCode";
 
 const mensEyeglassesCatalog = new MensEyeglassesCatalog();
 const homepage = new Homepage();
 const reuseableCode = new ReuseableCode();
 
-describe("Men Eyeglasses Products Catalog TS_009", function () {
+describe("TS_009 - Men Eyeglasses Products Catalog", function () {
   beforeEach(() => {
     cy.visit("/mens-eyeglasses");
     homepage.closeDiscountPOpup();

@@ -7,7 +7,7 @@ import { CheckoutPage } from "../pageObjects/CheckoutPage"
 const homepage = new Homepage
 const checkout = new CheckoutPage
 
-describe('CheckoutPage TS_004',function(){
+describe('TS_004 - CheckoutPage',function(){
     beforeEach(() => {
         cy.visit('/')
         homepage.closeDiscountPOpup()

@@ -1,12 +1,12 @@
 
 /// <reference types = "Cypress"/>
-import { Homepage } from "../pageObjects/Homepage";
-import { ContactLensesCatlog } from "../pageObjects/ContactLensesCatlog";
+import { Homepage } from "../../pageObjects/Homepage";
+import { ContactLensesCatlog } from "../../pageObjects/ContactLensesCatlog";
 
 const homepage= new Homepage
 const contantlensesCatlog = new ContactLensesCatlog
 
-describe('ContactLensesCatlog TS_012' ,function(){
+describe('TS_012 - ContactLensesCatlog' ,function(){
     beforeEach(()=>{
         cy.visit('/contact-lenses')
         homepage.closeDiscountPOpup()
