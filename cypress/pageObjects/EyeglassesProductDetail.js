@@ -109,7 +109,7 @@ export class EyeglassesProductDetail {
             var elem = ele.split("$")
             const price = elem[1].trim() //get the price
             cy.log(price)
-            cy.get('.product-summary-add-cart-btn > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
+            cy.get('.product-summary-add-cart-btn > .btn-cart > .btn').should('contain.text', 'Add to Cart').click({force:true})
             cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
             cy.get('#addProtectionBtn').should('contain.text', "Protect my purchase").click()
             cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')
