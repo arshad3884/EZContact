@@ -1,17 +1,13 @@
 /// <reference types = "Cypress"/>
 
-import { Homepage } from "../../pageObjects/Homepage"
-import { EyeglassesProductDetail } from "../../pageObjects/EyeglassesProductDetail"
-import {AccountPage} from "../../pageObjects/AccountPage"
-import {MenuOptions} from "../../pageObjects/MenuOptions"
- 
+import { Homepage } from "../pageObjects/Homepage"
+import { EyeglassesProductDetail } from "../pageObjects/EyeglassesProductDetail"
+
 
 const homepage = new Homepage
 const eyeglassesProductDetail = new EyeglassesProductDetail
-const accountPage = new AccountPage
-const menuOptions = new MenuOptions
 
-describe('TS_016 - EyeglassesProductDetail',function(){
+describe('EyeglassesProductDetail TS_016',function(){
   beforeEach(()=>{
     cy.visit('/eyeglasses')
     homepage.closeDiscountPOpup()
@@ -22,12 +18,11 @@ describe('TS_016 - EyeglassesProductDetail',function(){
       eyeglassesProductDetail.validateAllContentOnProductDetailPage()
     })
 
-    it('TC_EPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
-      cy.get('.top-login > [href="/account/sign-in"]').click()
-      accountPage.signin('testqatester81@gmail.com','123456')
-      menuOptions.goToEyeglassesCatalog() 
-      eyeglassesProductDetail.goToFirstProductDetailPage()
-      eyeglassesProductDetail.goToAddReview()
+    it ('TC_EPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
+        eyeglassesProductDetail.addLoginDetails()
+       // homepage.closeDiscountPOpup()
+        eyeglassesProductDetail.goToFirstProductDetailPage()
+        eyeglassesProductDetail.goToAddReview()
     })
 
     it ('TC_EPD_003 - Validate the "QUESTIONS & ANSWERS" section and functionality on product detail page',function(){
@@ -36,12 +31,10 @@ describe('TS_016 - EyeglassesProductDetail',function(){
     })
 
     it ('TC_EPD_004 - Verify that the user can add any eyeglasses product to Wishlist',function(){
-      cy.get('.top-login > [href="/account/sign-in"]').click()
-      accountPage.signin('testqatester81@gmail.com','123456')
-      menuOptions.goToEyeglassesCatalog()
+      eyeglassesProductDetail.addLoginDetails()
+     // homepage.closeDiscountPOpup()
       eyeglassesProductDetail.goToFirstProductDetailPage()
       eyeglassesProductDetail.addAProductToWishList()
-      eyeglassesProductDetail.removeProductFromWishlist()
     })
 
     it ('TC_EPD_005 - Validate "Add to Cart" functionality on the eyeglasses product page without adding Accident Protection and adding a custom Lense',function(){

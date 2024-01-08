@@ -1,17 +1,14 @@
 /// <reference types = "Cypress"/>
 
-import { Homepage } from "../../pageObjects/Homepage"
-import { ContactLensesProductDetail } from "../../pageObjects/ContactLensesProductDetail"
-import { AccountPage } from "../../pageObjects/AccountPage"
-import {MenuOptions} from "../../pageObjects/MenuOptions"
+import { Homepage } from "../pageObjects/Homepage"
+import { ContactLensesProductDetail } from "../pageObjects/ContactLensesProductDetail"
+import { beforeEach } from "mocha"
 
 
 const homepage = new Homepage
 const contactLensesProductDetail = new ContactLensesProductDetail
-const accountPage = new AccountPage
-const menuOptions = new MenuOptions
 
-describe('TS_017 - ContactLensesProductDetail',function(){
+describe('ContactLensesProductDetail TS_017',function(){
     beforeEach(()=>{
       cy.visit('/contact-lenses')
       homepage.closeDiscountPOpup()
@@ -23,9 +20,7 @@ describe('TS_017 - ContactLensesProductDetail',function(){
     })
 
     it ('TC_CLPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
-      cy.get('.top-login > [href="/account/sign-in"]').click()
-      accountPage.signin('testqatester81@gmail.com','123456')
-      menuOptions.goToContactLenseCatalog()
+      contactLensesProductDetail.addLoginDetails()
       contactLensesProductDetail.goToFirstProductDetailPage()
       contactLensesProductDetail.goToAddReview()
     })
@@ -59,6 +54,7 @@ describe('TS_017 - ContactLensesProductDetail',function(){
     })
 
     it ('TC_CLPD_009 - Validate on the contact-lenses product if user clicks on "Add to cart" without selecting any option app shows an error',function(){
+      cy.visit('https://www.ezcontacts.com/contact-lenses')
       contactLensesProductDetail.goToFirstProductDetailPage() 
       contactLensesProductDetail.addProductToCartWithoutSelect()
     })

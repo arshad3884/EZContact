@@ -1,16 +1,13 @@
 /// <reference types = "Cypress"/>
 
-import { Homepage } from "../../pageObjects/Homepage"
-import { ReaderProductDetail } from "../../pageObjects/ReaderProductDetail"
-import {AccountPage} from "../../pageObjects/AccountPage"
-import {MenuOptions} from "../../pageObjects/MenuOptions"
+import { Homepage } from "../pageObjects/Homepage"
+import { ReaderProductDetail } from "../pageObjects/ReaderProductDetail"
+
 
 const homepage = new Homepage
 const readerProductDetail = new ReaderProductDetail
-const accountPage = new AccountPage
-const menuOptions = new MenuOptions
 
-describe('TS_018 - ReaderProductDetail',function(){
+describe('ReaderProductDetail TS_018',function(){
     beforeEach(()=>{
         cy.visit('/readers')
         homepage.closeDiscountPOpup()
@@ -22,9 +19,8 @@ describe('TS_018 - ReaderProductDetail',function(){
     })
 
     it ('TC_RDPD_002 - Validate the "RATINGS & REVIEWS" functionality on product detail page',function(){
-        cy.get('.top-login > [href="/account/sign-in"]').click()
-        accountPage.signin('testqatester81@gmail.com','123456')
-        menuOptions.goToReadersCatalog()
+        readerProductDetail.addLoginDetails()
+        homepage.closeDiscountPOpup()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.goToAddReview()
     })
@@ -35,12 +31,10 @@ describe('TS_018 - ReaderProductDetail',function(){
     })
 
     it ('TC_RDPD_004 - Verify that the user can add any Readers product to the Wishlist',function(){
-        cy.get('.top-login > [href="/account/sign-in"]').click()
-        accountPage.signin('testqatester81@gmail.com','123456')
-        menuOptions.goToReadersCatalog()
+        readerProductDetail.addLoginDetails()
+        homepage.closeDiscountPOpup()
         readerProductDetail.goToFirstProductDetailPage()
         readerProductDetail.addAProductToWishList()
-        readerProductDetail.removeProductFromWishlist()
     })
 
     it ('TC_RDPD_005 - Validate "Add to Cart" functionality on the Readers product page including "Accident Protection"',function(){

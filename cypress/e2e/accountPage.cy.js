@@ -1,12 +1,11 @@
 /// <reference types = "Cypress"/>
 import 'cypress-iframe'
 import { AccountPage } from "../pageObjects/AccountPage"
-import { Homepage } from "../pageObjects/Homepage"
+import { ReuseableCode } from '../support/ReuseableCode'
 
 const accountPage = new AccountPage
-const homepage = new Homepage
-
-describe('TS_003 - AccountPage ',function(){
+const reuseableCode = new ReuseableCode
+describe('AccountPage TS_003 ',function(){
     
     beforeEach(() => {
         cy.visit('/account/sign-in')
@@ -103,9 +102,29 @@ describe('TS_003 - AccountPage ',function(){
         accountPage.validateWishListSection() //validate Wishlist Section
         accountPage.removeFirstProductFromWishList() //Remove first product from wishlist
     })
+
     it('TC_AC_015 - Validate the "Online Vision Test" section on the "MY ACCOUNT" main page', function(){
         accountPage.signin('johndoe@yopmail.com','123456')
         //Validate online vision test section
         accountPage.validateOnlineVisionTestSection()
+    })
+
+  it('TC_AC_016 - Validate the Signin as a new customer functionality on Account page', function(){
+    cy.get(':nth-child(5) > :nth-child(4)').should('contain.text','New Customer').click()
+    const randomString = reuseableCode.generateRandomString(6)
+    const newEmail = randomString + '@yopmail.com'
+    cy.get('#UserEmail').type(newEmail)
+    cy.get('#UserConfirmEmail').type(newEmail)
+    cy.get('#jsShowErrorModalCloseButton').click()
+    cy.get('#new-password').type('123456')
+    cy.get('#confirm-new-password').type('123456') 
+    cy.get('#sign-in-submit-btn').click()
+    cy.get('#authMessage').should('exist') //Error Message
+    const firstName = reuseableCode.getRandomFirstName()
+    cy.get('#UserNameFirst').type(firstName)
+    const lastName = reuseableCode.getRandomLastName()
+    cy.get('#UserNameLast').type(lastName)
+    cy.get('#sign-in-submit-btn').click()
+    cy.get('.container > .message').should('exist')
     })
 })

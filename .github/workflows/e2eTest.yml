@@ -22,10 +22,10 @@ jobs:
         with:
           browser: chrome
           headed: true
-          spec: |
-             cypress/e2e/*.cy.js
-             cypress/e2e/ProductCatalogs/*.cy.js
-             cypress/e2e/ProductDetailPages/*.cy.js
+          spec: cypress/e2e/*.cy.js
+          # spec: |
+          #   cypress/e2e/checkout.cy.js
+          #   cypress/e2e/homePage.cy.js
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         if: always()

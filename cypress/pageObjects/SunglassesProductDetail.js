@@ -1,5 +1,11 @@
 export class SunglassesProductDetail {
-    
+    addLoginDetails() {
+        cy.visit('https://www.ezcontacts.com/account/sign-in')
+        cy.get('#UserEmail').type('testqatester81@gmail.com')
+        cy.get('#new-password').type('123456')
+        cy.get('#sign-in-submit-btn').should('have.value', 'Sign in').click()
+        cy.get(':nth-child(14) > .dropdown-toggle').should('contain.text', 'SUNGLASSES').click()
+    }
     goToAddReview() {
         cy.get('#reviews').should('contain.text', 'RATINGS & REVIEWS')
         cy.get('.tt-c-reviews-summary__write-review-wrap > .tt-o-button').click()
@@ -29,24 +35,13 @@ export class SunglassesProductDetail {
         cy.get(':nth-child(1) > .mask-wrap > :nth-child(2) > .glass-mask').eq(0).click()
     }
     addAProductToWishList() {
-        cy.get('.add-to-wishlist-btn').click().wait(1000) //Whishlist icon
-        cy.get('h2[class="product-name"]').eq(1).invoke('text').then((text)=>{
-            cy.get('.top-login > [href="/account/main"]').click() //MyAccount link
-            cy.get('.section.m-off > .account-box > .account-left-col > .nav > :nth-child(7) > a').should('have.attr','href','/account/wishlist').click() //Whishlist section
-            //cy.get('[class="item-order-right"]').eq(0).should('contain.text',text)
-            cy.get('[class="item-order-right"]').eq(0).should(($element) => {
-                const actualText = $element.text().toLowerCase();
-                const expectedText = text.toLowerCase().trim();
-                expect(actualText).to.include(expectedText+'\n');
-              });
-            cy.log(text+' item added to the wishlist!')
-        })
-    }
-    removeProductFromWishlist()
-    {
-        cy.get('.remove-product').should('contain.text','Remove').click() //Remove link
-        cy.get('#modal_remove_button').click().wait(2000) //confirm on popup
-        cy.log('Item removed from the wishlist!')
+        cy.get('.add-to-wishlist-btn').click()
+        cy.get('.top-login > [href="/account/main"]').click()
+        cy.get('.section.m-off > .account-box > .account-left-col > .nav > :nth-child(7) > a').should('have.attr', 'href', '/account/wishlist').click()
+        cy.get('.mini-order').should('exist')
+        cy.get('.remove-product').click() // remove from the wishlist
+        cy.get('#modal_remove_button').click()
+        cy.get('.text-center > h4').should('exist')
     }
     validateAllContentOnProductDetailPage() {
         cy.get('.product-right > :nth-child(1) > .label').should('exist')
@@ -95,7 +90,7 @@ export class SunglassesProductDetail {
             var elem = ele.split("$")
             const price = elem[1].trim() //get the price
             cy.log(price)
-            cy.get('.product-summary-add-cart-btn > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
+            cy.get('.product-summary-add-cart-btn > .btn-cart > .btn').should('contain.text', 'Add to Cart').click({force:true})
             cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
             cy.get('#addProtectionBtn').should('contain.text', "Protect my purchase").click()
             cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')

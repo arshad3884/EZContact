@@ -272,6 +272,6 @@ export class Homepage
     }
     validateCopyRight()
     {
-        cy.get('.cstm-copy-right').should('have.text','\n Copyright 2024 EZContacts.com. All Rights Reserved. ') //validate copyright
+        cy.get('.cstm-copy-right').should('have.text','\n Copyright 2023 EZContacts.com. All Rights Reserved. ') //validate copyright
     }
 }
