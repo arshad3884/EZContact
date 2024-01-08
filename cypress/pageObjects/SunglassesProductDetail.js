@@ -39,9 +39,9 @@ export class SunglassesProductDetail {
         cy.get('.top-login > [href="/account/main"]').click()
         cy.get('.section.m-off > .account-box > .account-left-col > .nav > :nth-child(7) > a').should('have.attr', 'href', '/account/wishlist').click()
         cy.get('.mini-order').should('exist')
-        cy.go('back')
-        cy.go('back')
-        cy.get('.add-to-wishlist-btn').click()
+        cy.get('.remove-product').click() // remove from the wishlist
+        cy.get('#modal_remove_button').click()
+        cy.get('.text-center > h4').should('exist')
     }
     validateAllContentOnProductDetailPage() {
         cy.get('.product-right > :nth-child(1) > .label').should('exist')

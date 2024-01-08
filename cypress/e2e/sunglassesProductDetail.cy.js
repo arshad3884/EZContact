@@ -391,7 +391,7 @@ describe('SunglassesProductDetail TS_016',function(){
       sunglassesProductDetail.removeAProductFromCart()
     })
 
-    it.only ('TC_SPD_032 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
+    it ('TC_SPD_032 - Validate "Add to Cart" functionality on the sunglasses product page after adding Accident Protection and a custom Lense (Blue Light lenses)',function(){
       cy.visit('/sunglasses')
       homepage.closeDiscountPOpup()
       sunglassesProductDetail.applyWebBrandFilter()
