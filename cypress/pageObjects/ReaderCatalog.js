@@ -31,7 +31,7 @@ checkGenderfunctionality(){
     
 }
 applyPriceFilter(){
-    const Random = Reuse.getRandomNumber(1,5)
+    const Random = Reuse.getRandomNumber(0,4)
     cy.xpath("//h4[normalize-space()='Price']").should('contain','Price')
     cy.get('input[name="data[Filter][price][]"]').eq(Random).click({force:true})
     cy.wait(3000)
@@ -44,7 +44,7 @@ applyFrameShapeFilter(){
     cy.url().should('contain','/readers/shape')
 }
 applyBrandFilter(){
-    const Random = Reuse.getRandomNumber(0,170)
+    const Random = Reuse.getRandomNumber(0,169)
     // cy.xpath("//body/div[@class='content']/div[@class='eyeglass-container']/div[@class='container']/div[@id='smooth-scroll-div-to-content']/div[@class='contact-nav filter m-off contact-filter']/form[@id='FilterReadersForm']/ul[@class='nav brands-filters']/li[1]")
     // .eq().click({force})
     cy.get('[class="clearfix prettycheckbox labelright  blue present-to-visible"] input').eq(Random).click({force:true})
@@ -81,7 +81,7 @@ applyResetAllFilter(){
     cy.url().should('contain','/reader')
 }
 applyBestSellingFilter(){
-    const Random = Reuse.getRandomNumber(1,3)
+    const Random = Reuse.getRandomNumber(0,2)
     cy.get('#products-sort-order-select').select(Random)
 }
 showTotalProducts() {

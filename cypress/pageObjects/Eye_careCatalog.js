@@ -23,7 +23,7 @@ export class Eye_careCatalog{
         cy.get("ol[class='breadcrumb'] li[class='active']").should('contain','Eye-Care')
     }
     applyProductCatagerisFilter(){
-        const randomNo = Reuse.getRandomNumber(0,6)
+        const randomNo = Reuse.getRandomNumber(0,5)
         cy.xpath("//h4[normalize-space()='Product Categories']").should('contain','Product Categories')
         cy.get('[class="nav nooption"] input[unbxdparam_facetname="product_type_uFilter"]').eq(randomNo).click({force:true})
         cy.wait(3000)
@@ -32,7 +32,7 @@ export class Eye_careCatalog{
         cy.wait(3000)
     }
     applyBrandsFilter(){
-        const randomNo = Reuse.getRandomNumber(0,9)
+        const randomNo = Reuse.getRandomNumber(0,8)
         cy.xpath("(//h4[normalize-space()='Brands'])[1]").should('contain','Brands')
         cy.get('[class="multiselectoption brand-selection brand-selection-desktop"] input[unbxdparam_facetname="brand_uFilter"]')
         .eq(randomNo).click()
@@ -42,7 +42,7 @@ export class Eye_careCatalog{
         .eq(randomNo).click()
     }
     applyReviewFilter(){
-        const randomNo = Reuse.getRandomNumber(0,4)
+        const randomNo = Reuse.getRandomNumber(0,3)
         cy.xpath("(//h4[normalize-space()='Reviews'])[1]").should('contain','Review')
         cy.get('[unbxdparam_facetname="unbxd_rating_average_uFilter"] input[unbxdparam_facetname="unbxd_rating_average_uFilter"]')
         .eq(randomNo).click()
@@ -74,7 +74,7 @@ export class Eye_careCatalog{
 
     }
     selectRandomSortingOption() {
-        const randomNumber = Reuse.getRandomNumber(0, 5) //Generate a random number 1-6
+        const randomNumber = Reuse.getRandomNumber(0,4) //Generate a random number 1-6
         cy.get('.unbxd-sort-container select').should('exist').select(randomNumber)
     }
     clickPagination()
