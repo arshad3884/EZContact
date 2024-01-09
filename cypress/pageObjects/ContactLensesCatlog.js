@@ -13,7 +13,7 @@ export class ContactLensesCatlog {
         cy.wait(2000)
     }
     applyManufacturersFilter() {
-        const random = reuse.getRandomNumber(0, 7)
+        const random = reuse.getRandomNumber(0, 6)
         cy.get('[class="has-pretty-child"] input[unbxdparam_facetname="contact_lens_manufacturer_uFilter"]').eq(random).click()
         cy.wait(2000)
         cy.get('[class="clear_all_selected_facets"]').should('contain.text', 'Reset All Filters').click() //clear Reset All Filters

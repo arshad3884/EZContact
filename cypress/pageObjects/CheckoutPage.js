@@ -215,6 +215,7 @@ export class CheckoutPage
     addAProductToCartWithProtection()
     {
         cy.get('.col-md-12 > .btn-cart > .btn').should('have.text','Add to Cart').click({force:true})
+        cy.wait(3000)
         cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text','Protect your eyewear from accidental damage.')
         cy.get('#addProtectionBtn').should('contain.text','Protect my purchase').click({force:true})
         cy.get('.section-title').should('have.text','Shopping Cart') //shopping cart heading

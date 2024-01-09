@@ -38,6 +38,7 @@ export class ReaderProductDetail
         cy.get('h2[class="product-name"]').eq(1).invoke('text').then((text)=>{
             cy.get('.top-login > [href="/account/main"]').click() //MyAccount link
             cy.get('.section.m-off > .account-box > .account-left-col > .nav > :nth-child(7) > a').should('have.attr','href','/account/wishlist').click() //Whishlist section
+            cy.wait(1000)
             //cy.get('[class="item-order-right"]').eq(0).should('contain.text',text)
             cy.get('[class="item-order-right"]').eq(0).should(($element) => {
                 const actualText = $element.text().toLowerCase();

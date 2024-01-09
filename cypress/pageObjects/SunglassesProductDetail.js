@@ -211,8 +211,10 @@ export class SunglassesProductDetail {
             const price = elem[1].trim() //get the price
             cy.log(price)
             cy.get('.col-md-12 > .btn-cart > .btn').should('contain.text', 'Add to Cart').click()
+            cy.wait(1000)
             cy.get(':nth-child(2) > .col-md-12 > h2').should('contain.text', 'Protect your eyewear from accidental damage.')
             cy.get('#addProtectionBtn').should('contain.text', "Protect my purchase").click()
+            cy.wait(1000)
             cy.get('.content > .container > :nth-child(1)').should('contain.text', 'Item successfully added to your cart.')
             cy.get('#itemTotal').then((element1) => {
                 const ele1 = element1.text()
